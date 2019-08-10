@@ -44,6 +44,7 @@ TARGET_KERNEL_ARCH := arm64
 
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_SOURCE := $(KERNEL_COMMON)
+KERNEL_TOOLCHAIN_PREFIX := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-android-
 
 BOARD_HAS_MTK_HARDWARE := true
 MTK_HARDWARE := true
