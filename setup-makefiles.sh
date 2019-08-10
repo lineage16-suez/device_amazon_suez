@@ -16,7 +16,7 @@
 set -e
 
 VENDOR=amazon
-DEVICE_COMMON=mt8127-common
+DEVICE_COMMON=mt8173-common
 
 # Load extractutils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
@@ -35,7 +35,7 @@ fi
 setup_vendor "$DEVICE_COMMON" "$VENDOR" "$LINEAGE_ROOT" true
 
 # Copyright headers and guards
-write_headers "austin ford"
+write_headers "suez"
 
 # The standard blobs
 write_makefiles "$MY_DIR"/proprietary-files.txt
