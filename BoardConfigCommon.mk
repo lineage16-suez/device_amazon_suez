@@ -1,6 +1,6 @@
-DEVICE_COMMON := device/amazon/mt8127-common
-KERNEL_COMMON := kernel/amazon/mt8127-common
-VENDOR_COMMON := vendor/amazon/mt8127-common
+DEVICE_COMMON := device/amazon/mt8173-common
+KERNEL_COMMON := kernel/amazon/mt8173-common
+VENDOR_COMMON := vendor/amazon/mt8173-common
 
 # headers
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_COMMON)/include
@@ -9,7 +9,7 @@ TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_COMMON)/include
 -include $(VENDOR_COMMON)/BoardConfigVendor.mk
 
 # Platform
-TARGET_BOARD_PLATFORM := mt8127
+TARGET_BOARD_PLATFORM := mt8173
 TARGET_BOARD_PLATFORM_GPU := mali-450mp4
 
 
