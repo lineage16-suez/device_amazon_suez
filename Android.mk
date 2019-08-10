@@ -22,7 +22,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter austin ford,$(TARGET_DEVICE)),)
+ifneq ($(filter suez,$(TARGET_DEVICE)),)
 
 ifneq ($(TARGET_SIMULATOR),true)
 include $(call first-makefiles-under,$(LOCAL_PATH))
