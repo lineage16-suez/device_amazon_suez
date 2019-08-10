@@ -65,6 +65,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	bluetooth.default
 	
+# Graphics
+PRODUCT_PACKAGES += \
+    libion
+
 # Power
 PRODUCT_PACKAGES += \
 	power.default
