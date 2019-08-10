@@ -1,20 +1,70 @@
-Device Tree For Amazon Fire 7
-=============================
+## **MT8173**
+#### 64-bit ARM Cortex-A72/A53 heterogenous multi-processor with CorePilot
+MediaTek MT8173 is a highly integrated SOC which incorporates
+ a 64-bit quad-core, with clusters of ARM Cortex-A53 and high 
+performance Cortex-A72 processors operating at up to 2.0GHz. The 
+Imagination PowerVR GX6250 GPU offers OpenGL ES 3.0. To complement, 
+integrated is a high-end 20MP camera ISP, LPDDR3 at up to 933MHz, Ultra 
+HD 2160p video decoding and WQXGA display capability. The MT8173 helps 
+tablet manufacturers to build very high-performance multimedia tablets 
+with a PC-like browser, close to console-level 3D gaming and cinema 
+class home entertainment experiences.
 
-Basic   | Spec Sheet
--------:|:-------------------------
-CPU     | Quad 1.3 GHz Cortex-A7
-CHIPSET | Mediatek MT8127
-GPU     | Mali-450 MP
-Memory  | 1GB RAM
-Android | 5.0
-Storage | 16 GB
-MicroSD | yes
-Battery | 2980 mAh
-Display | 7"
-Front Camera  | 0.3 MP
-Rear Camera  | 2 MP
+##### MT6630
+On the MT8173 platform, Wi-Fi and Bluetooth functions are supplied by the MT6630 platform companion chip.
 
-![Fire 7](https://cnet1.cbsistatic.com/img/xQi3z27APNet9u6_jXURLg8YP7U=/770x433/2017/06/01/91b72246-686f-4be5-baf7-3bb26a6ba518/amazon-fire-7-15.jpg "Fire 7")
+#### Specifications
+#### Processor
 
-This branch is for building LineageOS 12.1
+**CPU Cluster 1:**
+ARM-A72 @ 2.0GHz
+
+**CPU Cluster 2:**
+ARM-A53 @ 1.3GHz
+
+**CPU Core:**
+Quad (4)
+
+**CPU Bits:**
+64-bit
+
+**Heterogeneous Multi Processing:**
+ Yes
+
+**Memory:**
+DDR3, LPDDR3 (Single Channel)
+
+#### Graphics
+**GPU Type:**
+IMG PowerVR GX6250
+
+**Display Resolution:**
+1920 x 1080
+
+**Video Encode:**
+H.264
+
+**Video Decode:**
+H.264, H.265 / HEVC, MPEG-1/2/4
+
+#### Connectivity
+**Connectivity:**
+Bluetooth, FM Radio, GNSS: GPS, Glonass, Beidou, Galileo, Wi-Fi
+
+**Wi-Fi (IEEE 802.11):**
+Wi-Fi 5 (a/b/g/n/ac)
+
+**Wi-Fi Frequency:**
+2.4GHz, 5GHz
+
+#### Camera
+**Camera ISP:**
+20MP
+
+**Recording Resolution:**
+1920 x 1080
+
+**Recording FPS:**
+30
+
+original source: https://www.mediatek.com/products/tablets/mt8173
