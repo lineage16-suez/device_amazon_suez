@@ -1,5 +1,5 @@
-DEVICE_COMMON := device/amazon/mt8127-common
-VENDOR_COMMON := vendor/amazon/mt8127-common
+DEVICE_COMMON := device/amazon/mt8173-common
+VENDOR_COMMON := vendor/amazon/mt8173-common
 
 # Device overlay
 DEVICE_PACKAGE_OVERLAYS += $(DEVICE_COMMON)/overlay
@@ -86,4 +86,4 @@ $(call inherit-product, frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
 # Get non-open-source specific aspects
-$(call inherit-product-if-exists, $(VENDOR_COMMON)/mt8127-common-vendor.mk)
+$(call inherit-product-if-exists, $(VENDOR_COMMON)/mt8173-common-vendor.mk)
