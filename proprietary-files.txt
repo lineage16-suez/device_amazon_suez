@@ -62,6 +62,7 @@ etc/wifi/wpa_supplicant.conf
 etc/wifi/wpa_supplicant_overlay.conf
 etc/media_codecs_mediatek_audio.xml
 etc/media_codecs_mediatek_video.xml
+etc/media_codecs_performance.xml
 etc/mtklog-config.prop
 etc/mtk_omx_core.cfg
 etc/.tp/.ht120.mtc
