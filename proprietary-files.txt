@@ -77,6 +77,7 @@ lib/hw/hwcomposer.mt8173.so
 lib/hw/keystore.mt8173.so
 lib/hw/lights.mt8173.so
 lib/hw/memtrack.mt8173.so
+lib/hw/perfboost.default.so
 lib/hw/perfboost.mt8173.so
 lib/hw/sensors.mt8173.so
 lib/hw/thermal.mt8173.so
@@ -228,6 +229,7 @@ lib64/hw/hwcomposer.mt8173.so
 lib64/hw/keystore.mt8173.so
 lib64/hw/lights.mt8173.so
 lib64/hw/memtrack.mt8173.so
+lib64/hw/perfboost.default.so
 lib64/hw/perfboost.mt8173.so
 lib64/hw/sensors.mt8173.so
 lib64/hw/thermal.mt8173.so
