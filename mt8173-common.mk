@@ -54,7 +54,8 @@ PRODUCT_PACKAGES += \
     libaudio-resampler \
     libtinyalsa \
     libtinycompress \
-    libtinyxml
+    libtinyxml \
+    libaudioroute
     
 # Bluetooth
 PRODUCT_PACKAGES += \
