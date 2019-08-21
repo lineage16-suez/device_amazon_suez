@@ -93,7 +93,6 @@ lib/libasp.so
 lib/libaudiocompensationfilter.so
 lib/libaudiocomponentengine.so
 lib/libaudiocustparam.so
-lib/libaudioroute.so
 lib/libaudiospdif.so
 lib/libaudiostream.so
 lib/libaudiotoolkit.so
@@ -245,7 +244,6 @@ lib64/libasp.so
 lib64/libaudiocompensationfilter.so
 lib64/libaudiocomponentengine.so
 lib64/libaudiocustparam.so
-lib64/libaudioroute.so
 lib64/libaudiospdif.so
 lib64/libaudiostream.so
 lib64/libaudiotoolkit.so
