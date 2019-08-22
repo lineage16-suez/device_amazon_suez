@@ -1,9 +1,5 @@
-# MTK project .rc configure
-
 import init.suez.usb.rc
 import init.rc.ufsd
-import init.charging.rc
-import init.coredump.rc
 
 on init
     mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw
