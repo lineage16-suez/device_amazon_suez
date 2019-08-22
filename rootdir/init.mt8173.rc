@@ -1,22 +1,6 @@
-# MTK platform .rc configure
-
 import init.project.rc
-import /FWUpgradeInit.rc
-import init.xlog.rc
-import init.aee.rc
-import init.fon.rc
-import init.volte.rc
-import init.mal.rc
-import init.epdg.rc
-import init.trustonic.rc
-import init.common_svc.rc
 import init.mt8173.usb.rc
 import init.ssd.rc
-# add usb .rc here
-
-# init.modem.rc must be the LAST rc file because vold.post_fs_data_done is set in it
-import init.modem.rc
-# *** DO NOT import the new rc file after this line ***
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
