@@ -65,6 +65,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libion
 
+# Lights
+PRODUCT_PACKAGES += \
+    lights.mt8173
+
 # Power
 PRODUCT_PACKAGES += \
 	power.default
