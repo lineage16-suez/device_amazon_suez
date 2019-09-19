@@ -86,15 +86,11 @@ lib/lib3a_sample.so
 lib/lib3a.so
 lib/libacdk.so
 lib/libaed.so
-lib/libamazon_remotes.so
-lib/libamazoninputservice.so
-lib/libamazonwifiservice.so
 lib/libasp.so
 lib/libaudiocompensationfilter.so
 lib/libaudiocomponentengine.so
 lib/libaudiocustparam.so
 lib/libaudiospdif.so
-lib/libaudiostream.so
 lib/libaudiotoolkit.so
 lib/libbessound_hd_mtk.so
 lib/libblisrc32.so
@@ -136,7 +132,6 @@ lib/libcamalgo.so
 lib/libcamdrv.so
 lib/libcameracustom.so
 lib/libccci_util.so
-lib/libcrypto.so
 lib/libcustom_nvram.so
 lib/libdirect-coredump.so
 lib/libdngop.so
@@ -166,7 +161,6 @@ lib/libion_mtk.so
 lib/libJpgDecPipe.so
 lib/libJpgEncPipe.so
 lib/libm4u.so
-lib/libmedia_amazon_jni.so
 lib/libmemtrack.so
 lib/libmhalImageCodec.so
 lib/libmp4enc_sa.ca7.so
@@ -195,11 +189,6 @@ lib/libnvramagentclient.so
 lib/libplayready.so
 lib/libpq_cust.so
 lib/libpq_prot.so
-lib/libPQDCjni.so
-lib/libPQjni.so
-lib/libreference-ril.so
-lib/libril.so
-lib/librilutils.so
 lib/libspeech_enh_lib.so
 lib/libstagefrighthw.so
 lib/libSwJpgCodec.so
@@ -237,15 +226,11 @@ lib64/lib3a_sample.so
 lib64/lib3a.so
 lib64/libacdk.so
 lib64/libaed.so
-lib64/libamazon_remotes.so
-lib64/libamazoninputservice.so
-lib64/libamazonwifiservice.so
 lib64/libasp.so
 lib64/libaudiocompensationfilter.so
 lib64/libaudiocomponentengine.so
 lib64/libaudiocustparam.so
 lib64/libaudiospdif.so
-lib64/libaudiostream.so
 lib64/libaudiotoolkit.so
 lib64/libbessound_hd_mtk.so
 lib64/libblisrc32.so
@@ -286,7 +271,6 @@ lib64/libcamalgo.so
 lib64/libcamdrv.so
 lib64/libcameracustom.so
 lib64/libccci_util.so
-lib64/libcrypto.so
 lib64/libcustom_nvram.so
 lib64/libdirect-coredump.so
 lib64/libdngop.so
@@ -309,7 +293,6 @@ lib64/libion_mtk.so
 lib64/libJpgDecPipe.so
 lib64/libJpgEncPipe.so
 lib64/libm4u.so
-lib64/libmedia_amazon_jni.so
 lib64/libmemtrack.so
 lib64/libmhalImageCodec.so
 lib64/libmrdump.so
@@ -329,11 +312,6 @@ lib64/libnvram.so
 lib64/libnvramagentclient.so
 lib64/libpq_cust.so
 lib64/libpq_prot.so
-lib64/libPQDCjni.so
-lib64/libPQjni.so
-lib64/libreference-ril.so
-lib64/libril.so
-lib64/librilutils.so
 lib64/libspeech_enh_lib.so
 lib64/libstagefrighthw.so
 lib64/libSwJpgCodec.so
