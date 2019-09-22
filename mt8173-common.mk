@@ -55,7 +55,9 @@ PRODUCT_PACKAGES += \
     libtinyalsa \
     libtinycompress \
     libtinyxml \
-    libaudioroute
+    libaudioroute \
+    libaudiospdif \
+    libeffects
     
 # Bluetooth
 PRODUCT_PACKAGES += \
