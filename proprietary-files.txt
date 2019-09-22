@@ -377,12 +377,7 @@ vendor/lib64/egl/libGLESv1_CM_POWERVR_ROGUE.so
 vendor/lib64/egl/libGLESv2_POWERVR_ROGUE.so
 vendor/lib64/hw/gralloc.mt8173.img.so
 vendor/lib64/lib_uree_mtk_video_secure_al.so
-vendor/lib64/libAmazonDetectBD.so
-vendor/lib64/libAmazonDetectCore.so
 vendor/lib64/libglslcompiler.so
-vendor/lib64/libHadeanAlgorithm-AcfDetector.so
-vendor/lib64/libhadeanframework_core.so
-vendor/lib64/libhadeangpu_util.so
 vendor/lib64/libIMGegl.so
 vendor/lib64/libmemtrack_GL.so
 vendor/lib64/liboemcrypto.so
