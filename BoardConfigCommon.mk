@@ -105,7 +105,7 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto
 
 # TWRP
 ifneq (,$(strip $(wildcard bootable/recovery-twrp/twrp.cpp)))
-RECOVERY_VARIANT := twrp
+#RECOVERY_VARIANT := twrp
 endif
 DEVICE_RESOLUTION := 600x1024
 TW_EXCLUDE_MTP := false
