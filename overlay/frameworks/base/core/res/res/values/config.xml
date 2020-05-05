@@ -63,4 +63,45 @@
          The default is false. -->
     <bool name="config_lidControlsSleep">true</bool>
     
+     <!-- Flag indicating whether the we should enable the automatic brightness in Settings.
+         Software implementation will be used if config_hardware_auto_brightness_available is not set -->
+    <bool name="config_automatic_brightness_available">true</bool>
+
+     <integer-array name="config_autoBrightnessLevels">
+        <item>11</item>
+        <item>22</item>
+        <item>43</item>
+        <item>62</item>
+        <item>94</item>
+        <item>151</item>
+        <item>242</item>
+        <item>378</item>
+        <item>601</item>
+        <item>965</item>
+        <item>1543</item>
+        <item>2467</item>
+        <item>3980</item>
+        <item>6372</item>
+        <item>10186</item>
+        <item>12000</item>
+    </integer-array>
+
+    <integer-array name="config_autoBrightnessLcdBacklightValues">
+        <item>10</item>
+        <item>35</item>
+        <item>59</item>
+        <item>84</item>
+        <item>108</item>
+        <item>132</item>
+        <item>157</item>
+        <item>181</item>
+        <item>206</item>
+        <item>230</item>
+        <item>255</item>
+        <item>255</item>
+        <item>255</item>
+        <item>255</item>
+        <item>255</item>
+        <item>255</item>
+    </integer-array>
 </resources>
