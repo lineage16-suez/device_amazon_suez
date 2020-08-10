@@ -9,6 +9,8 @@ on early-init
     chmod 0755 /sys/kernel/debug
 
 on init
+    export LD_PRELOAD $LD_PRELOAD:/system/vendor/lib/libaudio_shim.so
+
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
 
@@ -694,6 +696,9 @@ on property:vold.decrypt=trigger_shutdown_framework
     start swapoff_action
     write /proc/bootprof "trigger_shutdown_framework"
 
+on property:dev.bootcomplete=1
+    start audiofix
+
 service kisd /vendor/bin/kisd
 	user root
 	group system
@@ -870,3 +875,9 @@ service rpmb_svc /vendor/bin/rpmb_svc
     class main
     group system drmrpc
     disabled
+
+service audiofix /system/xbin/audiofix
+    user root
+    group root
+    oneshot
+    
