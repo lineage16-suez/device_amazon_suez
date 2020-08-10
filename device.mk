@@ -85,6 +85,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libion
 
+# Headphones
+PRODUCT_PACKAGES += \
+    audiofix
+
 # Media
 PRODUCT_PACKAGES += \
     libnbaio_mono
@@ -129,7 +133,8 @@ PRODUCT_PACKAGES += \
     libshim_media \
     libshim_sensor \
     libshim_xlog \
-    libshim_camera
+    libshim_camera \
+    libshim_audio
 
 # Wifi
 PRODUCT_PACKAGES += \
