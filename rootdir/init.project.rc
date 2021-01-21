@@ -91,10 +91,12 @@ on post-fs-data
 #    chmod 0660 /dev/stpgps
 
 # WiFi
-    mkdir /data/misc/wifi 0770 wifi wifi
-    mkdir /data/misc/wifi/sockets 0770 wifi wifi
-    mkdir /data/misc/wpa_supplicant 0770 wifi wifi
-    chown wifi wifi /data/misc/wifi
+    # Create the directories used by the Wireless subsystem
+    mkdir /data/vendor/wifi 0770 wifi wifi
+    mkdir /data/vendor/wifi/hostapd/ctrl 0770 wifi wifi
+    mkdir /data/vendor/wifi/wpa 0770 wifi wifi
+    mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
+    mkdir /data/vendor/wifi/wpa_supplicant 0770 wifi wifi
 
 #Define device for ATCID
     chmod 660 /dev/ttyGS0
@@ -137,32 +139,32 @@ service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/
 # Connectivity related services (Begin)
 #
 
-service atci_service /system/bin/atci_service
+service atci_service /vendor/bin/atci_service
 	socket atci-service stream 660 radio system
 	socket atci-serv-fw stream 660 radio system
 	user root
         disabled
 	group radio system
-service atcid-daemon-u /system/bin/atcid
+service atcid-daemon-u /vendor/bin/atcid
 	user system
 	group radio system media
 	disabled
 	oneshot
 
-service atcid-daemon-e /system/bin/atcid
+service atcid-daemon-e /vendor/bin/atcid
 	user root
 	group radio system
 	disabled
 	oneshot
 
-service amzn_drmprov /system/bin/amzn_drmprov_check
+service amzn_drmprov /vendor/bin/amzn_drmprov_check
 	class main
 	user root
 	group system
 	oneshot
 	disabled
 
-service amzn_dha_hmac /system/bin/amzn_dha_hmac
+service amzn_dha_hmac /vendor/bin/amzn_dha_hmac
 	class main
 	user root
 	group system
@@ -172,7 +174,7 @@ service amzn_dha_hmac /system/bin/amzn_dha_hmac
 on early_property:ro.build.type=eng
 start atci_service
 start atcid-daemon-e
-service audio-daemon /system/bin/audiocmdservice_atci
+service audio-daemon /vendor/bin/audiocmdservice_atci
     class main
     socket atci-audio stream 660 media system
     user media
@@ -180,14 +182,14 @@ service audio-daemon /system/bin/audiocmdservice_atci
     disabled
     oneshot
 
-service wmtLoader /system/bin/wmt_loader
+service wmtLoader /vendor/bin/wmt_loader
     user root
     group root
     class core
     oneshot
 
 
-service 66xx_launcher /system/bin/6620_launcher -m 4 -p /system/etc/firmware/
+service 66xx_launcher /vendor/bin/6620_launcher -m 4 -p /vendor/etc/firmware/
     user system
     group system
     class core
