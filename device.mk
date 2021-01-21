@@ -1,12 +1,12 @@
-DEVICE_COMMON := device/amazon/mt8173-common
-VENDOR_COMMON := vendor/amazon/mt8173-common
+DEVICE := device/amazon/mt8173-common
+VENDOR := vendor/amazon/mt8173-common
 
 # Device overlay
-DEVICE_PACKAGE_OVERLAYS += $(DEVICE_COMMON)/overlay
+DEVICE_PACKAGE_OVERLAYS += $(DEVICE)/overlay
 
 # Install init.d scripts
 PRODUCT_COPY_FILES += \
-    $(DEVICE_COMMON)/configs/99exfat-support:system/etc/init.d/99exfat-support
+    $(DEVICE)/configs/99exfat-support:system/etc/init.d/99exfat-support
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
@@ -32,7 +32,7 @@ PRODUCT_COPY_FILES += \
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(DEVICE_COMMON)/rootdir,root)
+    $(call find-copy-subdir-files,*,$(DEVICE)/rootdir,root)
 
 # Config files
 PRODUCT_COPY_FILES += \
@@ -40,9 +40,9 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/etc/media_codecs_google_video_le.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
-    $(DEVICE_COMMON)/configs/media_codecs.xml:system/etc/media_codecs.xml \
-    $(DEVICE_COMMON)/configs/media_profiles.xml:system/etc/media_profiles.xml \
-    $(DEVICE_COMMON)/configs/mtk_omx_core.cfg:system/etc/mtk_omx_core.cfg
+    $(DEVICE)/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    $(DEVICE)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    $(DEVICE)/configs/mtk_omx_core.cfg:system/etc/mtk_omx_core.cfg
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -95,4 +95,4 @@ $(call inherit-product, frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
 # Get non-open-source specific aspects
-$(call inherit-product-if-exists, $(VENDOR_COMMON)/mt8173-common-vendor.mk)
+$(call inherit-product-if-exists, $(VENDOR)/suez-vendor.mk)
