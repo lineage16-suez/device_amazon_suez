@@ -58,7 +58,7 @@ PRODUCT_PACKAGES += \
 # Bluetooth
 PRODUCT_PACKAGES += \
 	bluetooth.default
-	
+
 # Graphics
 PRODUCT_PACKAGES += \
     libion
@@ -83,6 +83,9 @@ PRODUCT_PACKAGES += \
 WITH_EXFAT := true
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+
+# HIDL
+-include $(DEVICE)/hidl.mk
 
 # call dalvik heap config
 $(call inherit-product, frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk)
