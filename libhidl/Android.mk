@@ -1,4 +1,5 @@
-# Copyright (C) 2008 The Android Open Source Project
+#
+# Copyright (C) 2018 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,24 +13,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
-LOCAL_PATH:= $(call my-dir)
-# HAL module implemenation, not prelinked and stored in
-# hw/<COPYPIX_HARDWARE_MODULE_ID>.<ro.board.platform>.so
 include $(CLEAR_VARS)
-LOCAL_HEADER_LIBRARIES := libhardware_headers
-
-LOCAL_SRC_FILES := lights.c
-LOCAL_MULTILIB := both
-
+LOCAL_SHARED_LIBRARIES := libhidltransport
+LOCAL_MODULE := android.hidl.base@1.0
 LOCAL_MODULE_TAGS := optional
-LOCAL_PRELINK_MODULE := false
-LOCAL_MODULE_RELATIVE_PATH := hw
-
-LOCAL_SHARED_LIBRARIES := liblog
-
-LOCAL_MODULE := lights.$(TARGET_BOARD_PLATFORM)
-LOCAL_PROPRIETARY_MODULE := true
-
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 include $(BUILD_SHARED_LIBRARY)
-include $(LOCAL_PATH)/2.0/default/Android.mk
+
+include $(CLEAR_VARS)
+LOCAL_SHARED_LIBRARIES := libhidltransport
+LOCAL_MODULE := android.hidl.manager@1.0
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+include $(BUILD_SHARED_LIBRARY)
