@@ -59,6 +59,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	bluetooth.default
 
+# DRM
+PRODUCT_PACKAGES += \
+    libdrm
+
 # Graphics
 PRODUCT_PACKAGES += \
     libion
@@ -66,6 +70,10 @@ PRODUCT_PACKAGES += \
 # Lights
 PRODUCT_PACKAGES += \
     lights.mt8173
+
+# Media
+PRODUCT_PACKAGES += \
+    libnbaio_mono
 
 # Power
 PRODUCT_PACKAGES += \
@@ -79,6 +87,23 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     ebtables \
     ethertypes
+
+# Sensors
+PRODUCT_PACKAGES += \
+    libsensorndkbridge
+
+# Wifi
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/wifi/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf \
+    $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
+    $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
+
+PRODUCT_PACKAGES += \
+    libwpa_client \
+    hostapd \
+    hostapd_cli \
+    libwifi-hal-mt66xx \
+    wpa_supplicant
 
 WITH_EXFAT := true
 
