@@ -97,6 +97,10 @@ TARGET_USERIMAGES_USE_EXT4 := true
 
 BLOCK_BASED_OTA := false
 
+# Mainfest
+DEVICE_MANIFEST_FILE := $(DEVICE)/manifest.xml
+DEVICE_MATRIX_FILE   := $(DEVICE)/compatibility_matrix.xml
+
 # Vold
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun%d/file
 
