@@ -1,18 +1,19 @@
-DEVICE_COMMON := device/amazon/mt8173-common
-KERNEL_COMMON := kernel/amazon/mt8173-common
-VENDOR_COMMON := vendor/amazon/mt8173-common
+DEVICE := device/amazon/suez
+KERNEL := kernel/amazon/suez
+VENDOR := vendor/amazon/suez
 
 # headers
-TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_COMMON)/include
+TARGET_SPECIFIC_HEADER_PATH := $(DEVICE)/include
 
 # inherit from the proprietary version
--include $(VENDOR_COMMON)/BoardConfigVendor.mk
+-include $(VENDOR)/BoardConfigVendor.mk
 
 # Platform
 TARGET_BOARD_PLATFORM := mt8173
 
 # Bootloader
 TARGET_NO_BOOTLOADER := true
+TARGET_BOOTLOADER_BOARD_NAME := suez
 
 # Architecture
 TARGET_ARCH := arm64
@@ -40,8 +41,11 @@ BOARD_SECOND_OFFSET := 0x00e80000
 BOARD_MKBOOTIMG_ARGS := --kernel_offset $(BOARD_KERNEL_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET) --second_offset $(BOARD_SECOND_OFFSET) 
 TARGET_KERNEL_ARCH := arm64
 
+TARGET_KERNEL_CONFIG := suez_defconfig
+BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-TARGET_KERNEL_SOURCE := $(KERNEL_COMMON)
+TARGET_KERNEL_SOURCE := $(KERNEL)
 KERNEL_TOOLCHAIN_PREFIX := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-android-
 
 BOARD_HAS_MTK_HARDWARE := true
@@ -73,10 +77,10 @@ WIFI_DRIVER_FW_PATH_STA:=P2P
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_MTK := true
 BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_COMMON)/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE)/bluetooth
 
 # Graphics
-BOARD_EGL_CFG := $(DEVICE_COMMON)/configs/egl.cfg
+BOARD_EGL_CFG := $(DEVICE)/configs/egl.cfg
 USE_OPENGL_RENDERER := true
 TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_OVERLAY := true
@@ -121,6 +125,9 @@ RECOVERY_TOUCHSCREEN_SWAP_XY := true
 #RECOVERY_TOUCHSCREEN_FLIP_Y := true 
 RECOVERY_TOUCHSCREEN_FLIP_X := true
 BOARD_HAS_FLIPPED_SCREEN := true
+
+# Assert
+TARGET_OTA_ASSERT_DEVICE := suez
 
 # Disable API check
 WITHOUT_CHECK_API := true
