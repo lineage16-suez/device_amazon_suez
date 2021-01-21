@@ -100,6 +100,9 @@ BLOCK_BASED_OTA := false
 # Vold
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun%d/file
 
+# Seccomp filters
+BOARD_SECCOMP_POLICY += $(DEVICE)/seccomp
+
 # Assert
 TARGET_OTA_ASSERT_DEVICE := suez
 
