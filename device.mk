@@ -92,6 +92,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libsensorndkbridge
 
+# Shims
+PRODUCT_PACKAGES += \
+    libshim_lab126 \
+    libshim_atomic \
+    libshim_ui \
+    libshim_gui \
+    libshim_crypto \
+    libshim_binder \
+    libshim_media
+
 # Wifi
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf \
