@@ -1,5 +1,5 @@
-DEVICE := device/amazon/mt8173-common
-VENDOR := vendor/amazon/mt8173-common
+DEVICE := device/amazon/suez
+VENDOR := vendor/amazon/suez
 
 # Device overlay
 DEVICE_PACKAGE_OVERLAYS += $(DEVICE)/overlay
