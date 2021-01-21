@@ -222,6 +222,11 @@ on post-fs-data
     chmod 0660 /sys/class/misc/m_acc_misc/accdelay
     chmod 0660 /sys/class/misc/m_acc_misc/accbatch
     chmod 0660 /sys/class/misc/m_acc_misc/accflush
+    chmod 0777 /sys/class/misc/m_acc_misc/accenablenodata
+    chmod 0777 /sys/class/misc/m_acc_misc/accactive
+    chmod 0777 /sys/class/misc/m_acc_misc/accdelay
+    chmod 0777 /sys/class/misc/m_acc_misc/accbatch
+    chmod 0777 /sys/class/misc/m_acc_misc/accflush
     chown system system /sys/class/misc/m_acc_misc/accenablenodata
     chown system system /sys/class/misc/m_acc_misc/accactive
     chown system system /sys/class/misc/m_acc_misc/accdelay
@@ -693,6 +698,13 @@ on property:ro.board.platform=mt8173
     chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
     write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 1300000
 
+    chown system system /d/ged/hal/total_gpu_freq_level_count
+    chmod 0660 /d/ged/hal/total_gpu_freq_level_count
+    chown system system /d/ged/hal/custom_boost_gpu_freq
+    chmod 0660 /d/ged/hal/custom_boost_gpu_freq
+    chown system system /d/ged/hal/custom_upbound_gpu_freq
+    chmod 0660 /d/ged/hal/custom_upbound_gpu_freqi
+
 on property:vold.decrypt=trigger_reset_main
     start stop_modem
     write /proc/bootprof "trigger_reset_main"
@@ -715,7 +727,7 @@ on property:vold.decrypt=trigger_shutdown_framework
     start swapoff_action
     write /proc/bootprof "trigger_shutdown_framework"
 
-service kisd /system/bin/kisd
+service kisd /vendor/bin/kisd
 	user root
 	group system
 
@@ -770,13 +782,13 @@ service netdiag /system/bin/netdiag
     class main
 
 
-service nvram_daemon /system/bin/nvram_daemon
+service nvram_daemon /vendor/bin/nvram_daemon
     class main
     user root
     group system
     oneshot
 
-service atci_service /system/bin/atci_service
+service atci_service /vendor/bin/atci_service
     class core
     socket atci-service stream 660 radio system
     socket atci-serv-fw stream 660 radio system
@@ -784,7 +796,7 @@ service atci_service /system/bin/atci_service
     disabled
     group radio system
 
-service atcid-daemon-u /system/bin/atcid
+service atcid-daemon-u /vendor/bin/atcid
     class main
     socket adb_atci_socket stream 660 radio system
     user system
@@ -792,7 +804,7 @@ service atcid-daemon-u /system/bin/atcid
     disabled
     oneshot
 
-service atcid-daemon-e /system/bin/atcid
+service atcid-daemon-e /vendor/bin/atcid
     class core
     socket adb_atci_socket stream 660 radio system
     user root
@@ -811,7 +823,7 @@ on property:persist.service.atci.autostart=1
 start atci_service
 start atcid-daemon-u
 
-service audio-daemon /system/bin/audiocmdservice_atci
+service audio-daemon /vendor/bin/audiocmdservice_atci
     class main
     socket atci-audio stream 660 root system
     user root
@@ -823,13 +835,13 @@ service md_minilog_util /system/bin/md_minilog_util
     disabled
     oneshot
 
-service pq /system/bin/pq
+service pq /vendor/bin/pq
     class main
     user system
     group system graphics
     oneshot
 
-service aal /system/bin/aal
+service aal /vendor/bin/aal
     class main
     user system
     group system graphics
@@ -841,34 +853,17 @@ service rbfota /system/bin/fota1
     oneshot
 
 # For WiFi High Speed calibration
-service autokd /system/bin/autokd
+service autokd /vendor/bin/autokd
     class core
     user system
     group system
 
-service p2p_supplicant /system/bin/wpa_supplicant \
-    -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
-    -I/system/etc/wifi/wpa_supplicant_overlay.conf -N \
-    -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf -e/data/misc/wifi/entropy.bin \
-    -I/system/etc/wifi/p2p_supplicant_overlay.conf \
-    -O/data/misc/wifi/sockets -g@android:wpa_wlan0
-    #   we will start as root and wpa_supplicant will switch to user wifi
-    #   after setting up the capabilities required for WEXT
-    #   user wifi
-    #   group wifi inet keystore
-    class main
-    socket wpa_wlan0 dgram 660 wifi wifi
-    disabled
-    oneshot
-
-service wpa_supplicant /system/bin/wpa_supplicant \
-    -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf -e/data/misc/wifi/entropy.bin \
-    -I/system/etc/wifi/wpa_supplicant_overlay.conf \
-    -O/data/misc/wifi/sockets -g@android:wpa_wlan0
-    #   we will start as root and wpa_supplicant will switch to user wifi
-    #   after setting up the capabilities required for WEXT
-    #   user wifi
-    #   group wifi inet keystore
+service wpa_supplicant /system/vendor/bin/hw/wpa_supplicant \
+    -puse_p2p_group_interface \
+    -O/data/vendor/wifi/wpa/sockets/ \
+    -g@android:wpa_wlan0
+    interface android.hardware.wifi.supplicant@1.0::ISupplicant default
+    interface android.hardware.wifi.supplicant@1.1::ISupplicant default
     class main
     socket wpa_wlan0 dgram 660 wifi wifi
     disabled
@@ -1150,94 +1145,94 @@ service emdlogger6 /system/bin/emdlogger6
 #sensor service (begin)
 #
 
-service msensord /system/bin/msensord
+service msensord /vendor/bin/msensord
     class main
     oneshot
 
-service s62xd /system/bin/s62xd
+service s62xd /vendor/bin/s62xd
     disabled
     user compass
     group system
     class main
-service ami304d /system/bin/ami304d
+service ami304d /vendor/bin/ami304d
     user system
     group system
     disabled
     class main
 
-service memsicd /system/bin/memsicd
+service memsicd /vendor/bin/memsicd
      disabled
     user system
     group system
     class main
 
-service memsicd3416x /system/bin/memsicd3416x
-     disabled
-	 user system
-    group system
-    class main
-service akmd8975 /system/bin/akmd8975
-    disabled
-    user system
-    group system
-    class main
-
-service akmd8963 /system/bin/akmd8963
-    disabled
-    user system
-    group system
-    class main
-
-service akmd09911 /system/bin/akmd09911
-    disabled
-    user system
-    group system
-    class main
-service bmm050d /system/bin/bmm050d
-    disabled
-    user system
-    group system
-    class main
-
-service bmm056d /system/bin/bmm056d
-    disabled
-    user system
-    group system
-    class main
-service mc6420d /system/bin/mc6420d
-    disabled
-    user system
-    group system
-    class main
-service qmc5983d /system/bin/qmc5983d
+service memsicd3416x /vendor/bin/memsicd3416x
      disabled
 	 user system
     group system
     class main
-
-service orientationd /system/bin/orientationd
-    disabled
-    user system
-    group system input
-    class main
-service AcdApiDaemon /system/bin/AcdApiDaemon
+service akmd8975 /vendor/bin/akmd8975
     disabled
     user system
     group system
     class main
 
-service geomagneticd /system/bin/geomagneticd
+service akmd8963 /vendor/bin/akmd8963
+    disabled
+    user system
+    group system
+    class main
+
+service akmd09911 /vendor/bin/akmd09911
+    disabled
+    user system
+    group system
+    class main
+service bmm050d /vendor/bin/bmm050d
+    disabled
+    user system
+    group system
+    class main
+
+service bmm056d /vendor/bin/bmm056d
+    disabled
+    user system
+    group system
+    class main
+service mc6420d /vendor/bin/mc6420d
+    disabled
+    user system
+    group system
+    class main
+service qmc5983d /vendor/bin/qmc5983d
+     disabled
+	 user system
+    group system
+    class main
+
+service orientationd /vendor/bin/orientationd
+    disabled
+    user system
+    group system input
+    class main
+service AcdApiDaemon /vendor/bin/AcdApiDaemon
+    disabled
+    user system
+    group system
+    class main
+
+service geomagneticd /vendor/bin/geomagneticd
     disabled
     user system
     group system input
     class main
 
-service mpud6050 /system/bin/mpud6050
+service mpud6050 /vendor/bin/mpud6050
     oneshot
     user system
     group system
 
-service mc64xxd /system/bin/mc64xxd
+service mc64xxd /vendor/bin/mc64xxd
     disabled
     user system
     group system
@@ -1258,12 +1253,12 @@ on property:ro.build.type=user
 on property:ro.build.type=userdebug
     start emsvr_user
 
-service emsvr_user /system/bin/em_svr
+service emsvr_user /vendor/bin/em_svr
     disabled
     user system
     group system radio diag
 
-service emsvr /system/bin/em_svr
+service emsvr /vendor/bin/em_svr
     disabled
     user root
 
@@ -1276,12 +1271,12 @@ service shutdown /system/bin/shutdown
     group root
     disabled
 
-service NvRAMAgent /system/bin/nvram_agent_binder
+service NvRAMAgent /vendor/bin/nvram_agent_binder
     class main
     user system
     group system
 
-service thermal_manager /system/bin/thermal_manager
+service thermal_manager /vendor/bin/thermal_manager
     class main
     user root
     oneshot
@@ -1318,7 +1313,7 @@ service backuprestore /system/bin/br_app_data_service
 #	user system
 #	group gps system radio
 #	class main
-service MtkCodecService /system/bin/MtkCodecService
+service MtkCodecService /vendor/bin/MtkCodecService
     class main
     user system
     group audio media sdcard_r
@@ -1331,7 +1326,7 @@ service pvrsrvctl /system/vendor/bin/pvrsrvctl --no-module  --start
 	oneshot
  
 # GuiExt Server init
-service guiext-server /system/bin/guiext-server
+service guiext-server /vendor/bin/guiext-server
     class main
     user system
     group system graphics
@@ -1432,7 +1427,7 @@ service program_binary /system/bin/program_binary_service
     group graphics
     oneshot
 
-service rpmb_svc /system/bin/rpmb_svc
+service rpmb_svc /vendor/bin/rpmb_svc
     class main
     group system drmrpc
     disabled
