@@ -58,10 +58,6 @@ on fs
     exec /system/bin/chmod 0660 /dev/block/platform/mtk-msdc.0/by-name/frp
     write /proc/bootprof "INIT:Mount_END"
 
-on fs
-
-   mount iso9660 loop@/system/etc/iAmCdRom.iso /mnt/cd-rom ro
-
 on post-fs
     # Support legacy paths
     symlink /sdcard /storage/sdcard0
