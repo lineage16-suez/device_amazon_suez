@@ -1,5 +1,23 @@
+# MTK platform .rc configure
+
 import init.project.rc
+import /FWUpgradeInit.rc
+import init.xlog.rc
+import init.aee.rc
+import init.fon.rc
+import init.volte.rc
+import init.mal.rc
+import init.epdg.rc
+import init.trustonic.rc
+import init.common_svc.rc
+import init.mt8173.usb.rc
 import init.ssd.rc
+import init.trace.rc
+# add usb .rc here
+
+# init.modem.rc must be the LAST rc file because vold.post_fs_data_done is set in it
+import init.modem.rc
+# *** DO NOT import the new rc file after this line ***
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
@@ -32,7 +50,9 @@ on init
 # mount different fs start
 
 on charger
-    symlink /dev/block/platform/soc /dev/block/platform/mtk-msdc.0
+    #symlink /dev/block/platform/soc /dev/block/platform/mtk-msdc.0
+    symlink /dev/block/platform/soc/11230000.mmc /dev/block/platform/mtk-msdc.0
+    mount ext4 /dev/block/platform/mtk-msdc.0/by-name/system /system ro wait
     start charger
 
 service charger /sbin/healthd -c
@@ -43,11 +63,15 @@ service charger /sbin/healthd -c
 
 on fs
     write /proc/bootprof "INIT:Mount_START"
-    symlink /dev/block/platform/soc /dev/block/platform/mtk-msdc.0
+    #symlink /dev/block/platform/soc /dev/block/platform/mtk-msdc.0
+    symlink /dev/block/platform/soc/11230000.mmc /dev/block/platform/mtk-msdc.0
 
     exec /sbin/resize_ext4 /dev/block/platform/mtk-msdc.0/by-name/userdata footer
 
     mount_all /fstab.mt8173
+
+    mkdir /mnt/sqfs 0771 system system
+    mount squashfs loop@/system/sqfs/container.sqfs /mnt/sqfs wait ro context=u:object_r:squashfs_file:s0
 
     exec /system/bin/tune2fs -O has_journal -u 10010 -r 4096 /dev/block/platform/mtk-msdc.0/by-name/userdata
 
@@ -55,9 +79,14 @@ on fs
     exec /system/bin/chmod 0660 /dev/block/platform/mtk-msdc.0/by-name/frp
     write /proc/bootprof "INIT:Mount_END"
 
+on fs
+
+   mount iso9660 loop@/system/etc/iAmCdRom.iso /mnt/cd-rom ro
+
 on post-fs
     # Support legacy paths
     symlink /sdcard /storage/sdcard0
+    symlink /system/vendor/firmware /etc/firmware
 
     #change permissions for mediaserver
     chown root media /proc/clkmgr/mipi_test
@@ -74,7 +103,7 @@ on post-fs
     chown radio system /proc/freqhopping/status
     chown radio system /proc/freqhopping/userdef
 
-# change owner
+    # change owner
     chown system system /proc/bootprof
     chown root system /proc/mtprof/cputime
     chown root system /proc/mtprof/reboot_pid
@@ -1181,6 +1210,7 @@ service akmd09911 /vendor/bin/akmd09911
     user system
     group system
     class main
+
 service bmm050d /vendor/bin/bmm050d
     disabled
     user system
