@@ -12,3 +12,8 @@ extern "C" void* _ZN7android19GraphicBufferMapper4lockEPK13native_handleiRKNS_4R
 	return _ZN7android19GraphicBufferMapper4lockEPK13native_handlejRKNS_4RectEPPv(
 		handle, static_cast<uint32_t>(usage), bounds, vaddr);
 }
+
+extern "C" void _ZN7android13GraphicBufferC1Ejjij(
+	void *instance, uint32_t inWidth, uint32_t inHeight, android::PixelFormat inFormat, uint32_t inUsage) {}
+extern "C" void _ZN7android13GraphicBufferC1EjjijjP13native_handleb() {}
+extern "C" void _ZN7android19GraphicBufferMapper9lockYCbCrEPK13native_handleiRKNS_4RectEP13android_ycbcr() {}
