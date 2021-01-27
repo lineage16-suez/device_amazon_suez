@@ -1,7 +1,0 @@
-
-# Loading UFSD module on boot
-service ufsd /system/xbin/start-ufsd
-    class main
-    user root
-    oneshot
-
