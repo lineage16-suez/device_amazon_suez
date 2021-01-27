@@ -100,7 +100,8 @@ PRODUCT_PACKAGES += \
     libshim_gui \
     libshim_crypto \
     libshim_binder \
-    libshim_media
+    libshim_media \
+    libshim_sensor
 
 # Wifi
 PRODUCT_COPY_FILES += \
