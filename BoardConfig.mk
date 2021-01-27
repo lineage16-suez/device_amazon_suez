@@ -33,20 +33,24 @@ TARGET_CPU_ABI_LIST_64_BIT := arm64-v8a
 # Kernel Config
 BOARD_KERNEL_BASE := 0x40080000
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_KERNEL_OFFSET := 0x00000000
-BOARD_KERNEL_TAGS_OFFSET := 0x07f80000
-BOARD_RAMDISK_OFFSET := 0x03400000
-BOARD_SECOND_OFFSET := 0x00e80000
+BOARD_KERNEL_OFFSET := 0
 
-BOARD_MKBOOTIMG_ARGS := --kernel_offset $(BOARD_KERNEL_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET) --second_offset $(BOARD_SECOND_OFFSET) 
+
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00000000 --ramdisk_offset 0x03400000 --second_offset 0x00e80000 --tags_offset 0x07f80000 
 TARGET_KERNEL_ARCH := arm64
 
 TARGET_KERNEL_CONFIG := suez_defconfig
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2
+BOARD_KERNEL_CMDLINE += lcm=0-nt51021_wuxga_dsi_vdo
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_SOURCE := $(KERNEL)
 KERNEL_TOOLCHAIN_PREFIX := /home/ggow/Android/lineage-16.0/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-android-
+
+# Enable debug on eng builds
+ifeq ($(TARGET_BUILD_VARIANT),eng)
+TARGET_KERNEL_ADDITIONAL_CONFIG:= suez_debug_defconfig
+endif
 
 BOARD_HAS_MTK_HARDWARE := true
 MTK_HARDWARE := true
@@ -69,22 +73,28 @@ TARGET_LD_SHIM_LIBS := \
 	/system/vendor/lib64/libui_ext.so|libshim_ui.so \
 	/vendor/lib/mediadrm/libwvdrmengine.so|libshim_crypto.so \
 	/system/vendor/bin/amzn_dha_hmac|libshim_crypto.so \
-	/system/vendor/bin/amzn_dha_tool|libshim_crypto.so
+	/system/vendor/bin/amzn_dha_tool|libshim_crypto.so \
+	/system/vendor/lib/libcam.hal3a.v3.so|libshim_atomic.so \
+	/system/vendor/lib/libcam_utils.so|libshim_ui.so \
+	/system/vendor/lib/libcam.utils.sensorlistener.so|libshim_sensor.so \
+	/system/vendor/lib/libmtk_mmutils.so|libshim_ui.so
 
 # Binder API version
 TARGET_USES_64_BIT_BINDER := true
 
+BOARD_WLAN_DEVICE := MediaTek
 WPA_SUPPLICANT_VERSION := VER_0_8_X
-BOARD_WPA_SUPPLICANT_DRIVER := NL80211
 BOARD_HOSTAPD_DRIVER := NL80211
-BOARD_WLAN_DEVICE := mt66xx
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
+BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_mt66xx
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
-WIFI_DRIVER_FW_PATH_PARAM:="/dev/wmtWifi"
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_mt66xx
+WIFI_DRIVER_FW_PATH_PARAM := /dev/wmtWifi
 WIFI_DRIVER_FW_PATH_STA:=STA
 WIFI_DRIVER_FW_PATH_AP:=AP
-WIFI_DRIVER_FW_PATH_STA:=P2P
+WIFI_DRIVER_FW_PATH_P2P:=P2P
+WIFI_DRIVER_STATE_CTRL_PARAM := /dev/wmtWifi
+WIFI_DRIVER_STATE_ON := 1
+WIFI_DRIVER_STATE_OFF := 0
 
 # BT
 BOARD_HAVE_BLUETOOTH := true
@@ -93,12 +103,15 @@ BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE)/bluetooth
 
 # Graphics
-BOARD_EGL_CFG := $(DEVICE)/configs/egl.cfg
 USE_OPENGL_RENDERER := true
-TARGET_USES_C2D_COMPOSITION := true
-TARGET_USES_OVERLAY := true
-TARGET_USES_ION := true
-TARGET_DISPLAY_USE_RETIRE_FENCE := true
+TARGET_USES_HWC2 := true
+TARGET_USES_HWC2ON1ADAPTER := false
+TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
+TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := false
+
+TARGET_SCREEN_HEIGHT := 1920
+TARGET_SCREEN_WIDTH := 1200
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 1024*1024
 
