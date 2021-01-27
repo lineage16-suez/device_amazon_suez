@@ -810,47 +810,47 @@ service nvram_daemon /vendor/bin/nvram_daemon
     group system
     oneshot
 
-service atci_service /vendor/bin/atci_service
-    class core
-    socket atci-service stream 660 radio system
-    socket atci-serv-fw stream 660 radio system
-    user root
-    disabled
-    group radio system
+#service atci_service /vendor/bin/atci_service
+#    class core
+#    socket atci-service stream 660 radio system
+#    socket atci-serv-fw stream 660 radio system
+#    user root
+#    disabled
+#    group radio system
 
-service atcid-daemon-u /vendor/bin/atcid
-    class main
-    socket adb_atci_socket stream 660 radio system
-    user system
-    group radio system media
-    disabled
-    oneshot
+#service atcid-daemon-u /vendor/bin/atcid
+#    class main
+#    socket adb_atci_socket stream 660 radio system
+#    user system
+#    group radio system media
+#    disabled
+#    oneshot
 
-service atcid-daemon-e /vendor/bin/atcid
-    class core
-    socket adb_atci_socket stream 660 radio system
-    user root
-    group radio system
-    disabled
-    oneshot
+#service atcid-daemon-e /vendor/bin/atcid
+#    class core
+#    socket adb_atci_socket stream 660 radio system
+#    user root
+#    group radio system
+#    disabled
+#    oneshot
 
-on property:persist.service.atci.usermode=1
-    setprop persist.sys.usb.config mass_storage,adb,acm
+#on property:persist.service.atci.usermode=1
+#    setprop persist.sys.usb.config mass_storage,adb,acm
 
-on property:ro.build.type=eng
-start atci_service
-start atcid-daemon-e
+#on property:ro.build.type=eng
+#start atci_service
+#start atcid-daemon-e
 
-on property:persist.service.atci.autostart=1
-start atci_service
-start atcid-daemon-u
+#on property:persist.service.atci.autostart=1
+#start atci_service
+#start atcid-daemon-u
 
-service audio-daemon /vendor/bin/audiocmdservice_atci
-    class main
-    socket atci-audio stream 660 root system
-    user root
-    disabled
-    oneshot
+#service audio-daemon /vendor/bin/audiocmdservice_atci
+#    class main
+#    socket atci-audio stream 660 root system
+#    user root
+#    disabled
+#    oneshot
 
 service md_minilog_util /system/bin/md_minilog_util
     user root
@@ -975,30 +975,30 @@ on property:service.pppoe_wlan0.enable=0
 on property:service.pppoe_wlan0.enable=1
     start pppoe_wlan0
 # write proc for test sim
-    on property:gsm.sim.ril.testsim=0
-    write /proc/sys/net/netfilter/nf_conntrack_tcp_no_window_check 0
-    write /proc/sys/net/ipv4/tcp_rto_min 200
-    on property:gsm.sim.ril.testsim=1
-    write /proc/sys/net/netfilter/nf_conntrack_tcp_no_window_check 1
-    write /proc/sys/net/ipv4/tcp_rto_min 400
-    on property:gsm.sim.ril.testsim.2=0
-    write /proc/sys/net/netfilter/nf_conntrack_tcp_no_window_check 0
-    write /proc/sys/net/ipv4/tcp_rto_min 200
-    on property:gsm.sim.ril.testsim.2=1
-    write /proc/sys/net/netfilter/nf_conntrack_tcp_no_window_check 1
-    write /proc/sys/net/ipv4/tcp_rto_min 400
-    on property:gsm.sim.ril.testsim.3=0
-    write /proc/sys/net/netfilter/nf_conntrack_tcp_no_window_check 0
-    write /proc/sys/net/ipv4/tcp_rto_min 200
-    on property:gsm.sim.ril.testsim.3=1
-    write /proc/sys/net/netfilter/nf_conntrack_tcp_no_window_check 1
-    write /proc/sys/net/ipv4/tcp_rto_min 400
-    on property:gsm.sim.ril.testsim.4=0
-    write /proc/sys/net/netfilter/nf_conntrack_tcp_no_window_check 0
-    write /proc/sys/net/ipv4/tcp_rto_min 200
-    on property:gsm.sim.ril.testsim.4=1
-    write /proc/sys/net/netfilter/nf_conntrack_tcp_no_window_check 1
-    write /proc/sys/net/ipv4/tcp_rto_min 400
+#    on property:gsm.sim.ril.testsim=0
+#    write /proc/sys/net/netfilter/nf_conntrack_tcp_no_window_check 0
+#    write /proc/sys/net/ipv4/tcp_rto_min 200
+#    on property:gsm.sim.ril.testsim=1
+#    write /proc/sys/net/netfilter/nf_conntrack_tcp_no_window_check 1
+#    write /proc/sys/net/ipv4/tcp_rto_min 400
+#    on property:gsm.sim.ril.testsim.2=0
+#    write /proc/sys/net/netfilter/nf_conntrack_tcp_no_window_check 0
+#    write /proc/sys/net/ipv4/tcp_rto_min 200
+#    on property:gsm.sim.ril.testsim.2=1
+#    write /proc/sys/net/netfilter/nf_conntrack_tcp_no_window_check 1
+#    write /proc/sys/net/ipv4/tcp_rto_min 400
+#    on property:gsm.sim.ril.testsim.3=0
+#    write /proc/sys/net/netfilter/nf_conntrack_tcp_no_window_check 0
+#    write /proc/sys/net/ipv4/tcp_rto_min 200
+#    on property:gsm.sim.ril.testsim.3=1
+#    write /proc/sys/net/netfilter/nf_conntrack_tcp_no_window_check 1
+#    write /proc/sys/net/ipv4/tcp_rto_min 400
+#    on property:gsm.sim.ril.testsim.4=0
+#    write /proc/sys/net/netfilter/nf_conntrack_tcp_no_window_check 0
+#    write /proc/sys/net/ipv4/tcp_rto_min 200
+#    on property:gsm.sim.ril.testsim.4=1
+#    write /proc/sys/net/netfilter/nf_conntrack_tcp_no_window_check 1
+#    write /proc/sys/net/ipv4/tcp_rto_min 400
 
 service DMAgent /system/bin/dm_agent_binder
     class main
