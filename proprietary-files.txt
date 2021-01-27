@@ -48,8 +48,8 @@ etc/firmware/mt6630_patch_e1_hdr.bin:vendor/firmware/mt6630_patch_e1_hdr.bin
 etc/firmware/mt6630_patch_e2_hdr.bin:vendor/firmware/mt6630_patch_e2_hdr.bin
 etc/firmware/mt6630_patch_e3_0_hdr.bin:vendor/firmware/mt6630_patch_e3_0_hdr.bin
 etc/firmware/mt6630_patch_e3_1_hdr.bin:vendor/firmware/mt6630_patch_e3_1_hdr.bin
-etc/firmware/SMicBin_rt5514_mode14.dat:vendor/firmware/SMicBin_rt5514_mode14.dat
-etc/firmware/SMicBin_rt5514_mode24.dat:vendor/firmware/SMicBin_rt5514_mode24.dat
+#etc/firmware/SMicBin_rt5514_mode14.dat:vendor/firmware/SMicBin_rt5514_mode14.dat
+#etc/firmware/SMicBin_rt5514_mode24.dat:vendor/firmware/SMicBin_rt5514_mode24.dat
 etc/firmware/SMicBin.dat:vendor/firmware/SMicBin.dat
 etc/firmware/SMicTD1.dat:vendor/firmware/SMicTD1.dat
 etc/firmware/SMicTD2.dat:vendor/firmware/SMicTD2.dat
@@ -193,6 +193,7 @@ lib/libpq_cust.so:vendor/lib/libpq_cust.so
 lib/libpq_prot.so:vendor/lib/libpq_prot.so
 lib/libspeech_enh_lib.so:vendor/lib/libspeech_enh_lib.so
 lib/libstagefrighthw.so:vendor/lib/libstagefrighthw.so
+lib/libstlport.so:vendor/lib/libstlport.so
 lib/libSwJpgCodec.so:vendor/lib/libSwJpgCodec.so
 lib/libtz_uree.so:vendor/lib/libtz_uree.so
 lib/libui_ext.so:vendor/lib/libui_ext.so
@@ -314,6 +315,7 @@ lib64/libpq_cust.so:vendor/lib64/libpq_cust.so
 lib64/libpq_prot.so:vendor/lib64/libpq_prot.so
 lib64/libspeech_enh_lib.so:vendor/lib64/libspeech_enh_lib.so
 lib64/libstagefrighthw.so:vendor/lib64/libstagefrighthw.so
+lib64/libstlport.so:vendor/lib64/libstlport.so
 lib64/libSwJpgCodec.so:vendor/lib64/libSwJpgCodec.so
 lib64/libtz_uree.so:vendor/lib64/libtz_uree.so
 lib64/libui_ext.so:vendor/lib64/libui_ext.so
