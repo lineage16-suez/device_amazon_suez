@@ -148,23 +148,24 @@ service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/
 # Connectivity related services (Begin)
 #
 
-service atci_service /vendor/bin/atci_service
-	socket atci-service stream 660 radio system
-	socket atci-serv-fw stream 660 radio system
-	user root
-        disabled
-	group radio system
-service atcid-daemon-u /vendor/bin/atcid
-	user system
-	group radio system media
-	disabled
-	oneshot
+#service atci_service /vendor/bin/atci_service
+#	socket atci-service stream 660 radio system
+#	socket atci-serv-fw stream 660 radio system
+#	user root
+#        disabled
+#	group radio system
 
-service atcid-daemon-e /vendor/bin/atcid
-	user root
-	group radio system
-	disabled
-	oneshot
+#service atcid-daemon-u /vendor/bin/atcid
+#	user system
+#	group radio system media
+#	disabled
+#	oneshot
+
+#service atcid-daemon-e /vendor/bin/atcid
+#	user root
+#	group radio system
+#	disabled
+#	oneshot
 
 service amzn_drmprov /vendor/bin/amzn_drmprov_check
 	class main
@@ -180,16 +181,16 @@ service amzn_dha_hmac /vendor/bin/amzn_dha_hmac
 	oneshot
 	disabled
 
-on early_property:ro.build.type=eng
-start atci_service
-start atcid-daemon-e
-service audio-daemon /vendor/bin/audiocmdservice_atci
-    class main
-    socket atci-audio stream 660 media system
-    user media
-    group nvram media system sdcard_rw
-    disabled
-    oneshot
+#on early_property:ro.build.type=eng
+#start atci_service
+#start atcid-daemon-e
+#service audio-daemon /vendor/bin/audiocmdservice_atci
+#    class main
+#    socket atci-audio stream 660 media system
+#    user media
+#    group nvram media system sdcard_rw
+#    disabled
+#    oneshot
 
 service wmtLoader /vendor/bin/wmt_loader
     user root
