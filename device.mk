@@ -75,10 +75,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libnbaio_mono
 
-# Power
-PRODUCT_PACKAGES += \
-	power.default
-
 # network
 PRODUCT_PACKAGES += \
     netd
