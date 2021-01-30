@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mixer>
+	<!-- These are the initial mixer settings -->
+	<ctl name="Speaker_Amp_Switch" value="Off" />
+	<ctl name="Audio_Amp_Switch" value="Off" />
+	<ctl name="Headset_Speaker_Amp_Switch" value="Off" />
+	<ctl name="Voice_Amp_Switch" value="Off" />
+	<ctl name="Audio_Digital_Mic_Switch" value="Off" />
+	<ctl name="Audio_ADC_1_Switch" value="Off" />
+	<ctl name="Audio_ADC_2_Switch" value="Off" />
+	<ctl name="Audio_Preamp1_Switch" value="OPEN" />
+	<ctl name="Audio_Preamp2_Switch" value="OPEN" />
+	<ctl name="DL1_Playback_Mux" value="MTK_INTERFACE" />
+	<ctl name="DL2_Playback_Mux" value="MTK_INTERFACE" />
+
+	<!-- These are actual sound device specific mixer settings -->
+	<path name="normal-playback speaker">
+		<ctl name="DL1_Playback_Mux" value="MTK_INTERFACE" />
+	</path>
+
+	<path name="normal-playback headphone">
+		<ctl name="DL1_Playback_Mux" value="MTK_INTERFACE" />
+	</path>
+
+	<path name="normal-playback receiver">
+		<ctl name="DL1_Playback_Mux" value="MTK_INTERFACE" />
+	</path>
+
+	<path name="normal-playback speaker-and-headphone">
+		<ctl name="DL1_Playback_Mux" value="MTK_INTERFACE" />
+	</path>
+
+	<path name="low-latency-playback speaker">
+		<ctl name="DL2_Playback_Mux" value="MTK_INTERFACE" />
+	</path>
+
+	<path name="low-latency-playback headphone">
+		<ctl name="DL2_Playback_Mux" value="MTK_INTERFACE" />
+	</path>
+
+	<path name="low-latency-playback receiver">
+		<ctl name="DL2_Playback_Mux" value="MTK_INTERFACE" />
+	</path>
+
+	<path name="low-latency-playback speaker-and-headphone">
+		<ctl name="DL2_Playback_Mux" value="MTK_INTERFACE" />
+	</path>
+
+	<path name="speaker">
+		<ctl name="Speaker_Amp_Switch" value="On" />
+	</path>
+
+	<path name="headphone">
+		<ctl name="Audio_Amp_Switch" value="On" />
+	</path>
+
+	<path name="receiver">
+		<ctl name="Voice_Amp_Switch" value="On"/>
+	</path>
+
+	<path name="speaker-and-headphone">
+		<ctl name="Headset_Speaker_Amp_Switch" value="On" />
+	</path>
+
+	<path name="adc1">
+		<ctl name="Audio_ADC_1_Switch" value="On"/>
+	</path>
+
+	<path name="adc2">
+		<ctl name="Audio_ADC_2_Switch" value="On"/>
+	</path>
+
+	<path name="digital-mic">
+		<ctl name="Audio_Digital_Mic_Switch" value="On"/>
+	</path>
+
+    <path name="builtin-mic">
+        <path name="adc1" />
+        <path name="adc2" />
+        <ctl name="Audio_Preamp1_Switch" value="AIN1"/>
+        <ctl name="Audio_Preamp2_Switch" value="AIN1"/>
+    </path>
+
+    <path name="back-mic">
+        <path name="adc1" />
+        <path name="adc2" />
+        <ctl name="Audio_Preamp1_Switch" value="AIN3"/>
+        <ctl name="Audio_Preamp2_Switch" value="AIN3"/>
+    </path>
+
+	<path name="headset-mic">
+		<path name="adc1" />
+		<path name="adc2" />
+		<ctl name="Audio_Preamp1_Switch" value="AIN2"/>
+		<ctl name="Audio_Preamp2_Switch" value="AIN2"/>
+	</path>
+
+</mixer>
