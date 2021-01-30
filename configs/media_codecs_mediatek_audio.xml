@@ -72,17 +72,22 @@ Only the three quirks included above are recognized at this point:
     corresponding color space converter for thumbnail extraction,
     matching surfaceflinger support that can render the custom format to
     a texture and possibly other code, so just DON'T USE THIS QUIRK.
-
+   
     2012/07/13 config for MTK OMX Media Codecs, created by Morris Yang (mtk03147)
 -->
 
-<MediaCodecs>
-    <Settings>
-        <Setting name="max-video-encoder-input-buffers" value="10" />
-    </Settings>
-    <Include href="media_codecs_mediatek_audio.xml" />
-    <Include href="media_codecs_mediatek_video.xml" />
-    <Include href="media_codecs_google_audio.xml" />
-    <Include href="media_codecs_google_video_le.xml" />
-    <Include href="media_codecs_google_telephony.xml" />
-</MediaCodecs>
+<Included>
+    <Decoders>
+        <MediaCodec name="OMX.MTK.AUDIO.DECODER.MP3" >
+            <Type name="audio/mpeg" />
+            <Quirk name="decoder-lies-about-number-of-channels" />
+            <Quirk name="supports-multiple-frames-per-input-buffer" />
+        </MediaCodec>
+
+        <MediaCodec name="OMX.MTK.AUDIO.DECODER.MP2" >
+            <Type name="audio/mpeg-L2" />
+            <Quirk name="decoder-lies-about-number-of-channels" />
+            <Quirk name="supports-multiple-frames-per-input-buffer" />
+        </MediaCodec>
+    </Decoders>
+</Included>
