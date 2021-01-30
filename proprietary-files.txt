@@ -48,8 +48,8 @@ etc/firmware/mt6630_patch_e1_hdr.bin:vendor/firmware/mt6630_patch_e1_hdr.bin
 etc/firmware/mt6630_patch_e2_hdr.bin:vendor/firmware/mt6630_patch_e2_hdr.bin
 etc/firmware/mt6630_patch_e3_0_hdr.bin:vendor/firmware/mt6630_patch_e3_0_hdr.bin
 etc/firmware/mt6630_patch_e3_1_hdr.bin:vendor/firmware/mt6630_patch_e3_1_hdr.bin
-#etc/firmware/SMicBin_rt5514_mode14.dat:vendor/firmware/SMicBin_rt5514_mode14.dat
-#etc/firmware/SMicBin_rt5514_mode24.dat:vendor/firmware/SMicBin_rt5514_mode24.dat
+etc/firmware/SMicBin_rt5514_mode14.dat:vendor/firmware/SMicBin_rt5514_mode14.dat
+etc/firmware/SMicBin_rt5514_mode24.dat:vendor/firmware/SMicBin_rt5514_mode24.dat
 etc/firmware/SMicBin.dat:vendor/firmware/SMicBin.dat
 etc/firmware/SMicTD1.dat:vendor/firmware/SMicTD1.dat
 etc/firmware/SMicTD2.dat:vendor/firmware/SMicTD2.dat
