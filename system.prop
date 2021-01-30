@@ -1,33 +1,69 @@
-#
-#
-# system.prop for generic sdk
-#
 
-# ADB on recovery
-service.adb.root=1
-
-# set default USB configuration
-persist.sys.usb.config=mtp,adb
-
-# add support for USB storage type
-persist.sys.isUsbOtgEnabled=1
+rild.libpath=mtk-ril.so
+rild.libargs=-d /dev/ttyC0
 
 wifi.interface=wlan0
-wifi.tethering.interface=ap0
+ro.mediatek.wlan.wsc=1
+ro.mediatek.wlan.p2p=1
+mediatek.wlan.ctia=0
 
 ro.opengles.version=196609
 ro.hardware.gralloc=mt8173.img
 
 wifi.direct.interface=p2p0
-
 dalvik.vm.heapgrowthlimit=128m
 dalvik.vm.heapsize=256m
+
+# USB MTP WHQL
+ro.sys.usb.mtp.whql.enable=0
+ro.usb.vid=1949
+
+# Power off opt in IPO
+sys.ipo.pwrdncap=2
+
+ro.sys.usb.storage.type=mtp,mass_storage
+
+# USB BICR function
+ro.sys.usb.bicr=yes
+
+# USB Charge only function
+ro.sys.usb.charging.only=yes
 
 # audio
 ro.camera.sound.forced=0
 ro.audio.silent=0
+dolby.ds.settings.filename=ds1-0028.xml
+ro.smartvolume.config=/system/vendor/smartvolume/suez/
+
+ro.zygote.preload.enable=0
+
+# temporary enables NAV bar (soft keys)
+qemu.hw.mainkeys=0
+
+ro.kernel.zio=38,108,105,16
+ro.boot.selinux=disable
 
 ro.sf.lcd_density=240
+
+# performance
+ro.mtk_perf_simple_start_win=1
+ro.mtk_perf_response_time=1
+
+# factory mode config
+sys.mtk.no.factoryimage=1
+
+# HMDI 4K setting UI config
+ro.mtk_hdmi_4k_support=1
+
+#Audio rotation
+ro.audio.monitorRotation=true
+
+
+# hardware smartvolume support for headset|headphone
+ro.audio.hw_vol_devices=0x0C
+
+# maximum backup size for factory reset whitelist in kB
+ro.recovery.wl.maxstore=524288
 
 # hwui
 ro.hwui.texture_cache_size=48
@@ -43,11 +79,63 @@ ro.hwui.text_small_cache_height=1024
 persist.wifi.rssi.thresholds=-81,-72,-66,-63
 
 service.wcn.driver.ready=no
-ro.mtk_key_manager_kb_path=1
-ro.mediatek.platform=MT8173
-mtk_in_house_tee_support=true
-ro.mtk_sec_video_path_support=1
-persist.mtk.wcn.combo.chipid=-1
+service.wcn.coredump.mode=2
 
-ro.radio.noril=1
-ro.carrier=wifi-only
+debug.sf.treble_testing_override=true
+debug.hwui.renderer=opengl
+ro.mtk_key_manager_kb_path=1
+
+ro.mediatek.platform=MT8173
+ro.mediatek.chip_ver=S01
+ro.mediatek.gemini_support=false
+mediatek.wlan.chip=MT6630
+mediatek.wlan.module.postfix=_mt6630
+ro.mediatek.version.branch=alps-mp-l1.mp13.tc6sp
+ro.mediatek.version.release=alps-mp-l1.mp13.tc6sp
+ro.mediatek.version.sdk=4
+ro.mediatek.project.path=device/amazon/suez
+mtk_in_house_tee_support=true
+dalvik.vm.mtk-stack-trace-file=/data/anr/mtk_traces.txt
+
+ro.mtk_audio_profiles=1
+ro.mtk_besloudness_support=1
+ro.mtk_bt_support=1
+ro.mtk_wappush_support=1
+ro.mtk_audio_tuning_tool_ver=V1
+ro.mtk_wlan_support=1
+ro.mtk_omacp_support=1
+ro.mtk_dhcpv6c_wifi=1
+ro.mtk_fd_support=1
+ro.mtk_oma_drm_support=1
+ro.mtk_cta_drm_support=1
+ro.mtk_widevine_drm_l1_support=1
+ro.mtk_eap_sim_aka=1
+ro.mtk_flv_playback_support=1
+ro.mtk_wmv_playback_support=1
+ro.mtk_send_rr_support=1
+ro.mtk_emmc_support=1
+ro.mtk_tetheringipv6_support=1
+ro.mtk_shared_sdcard=1
+ro.mtk_pq_support=2
+ro.mtk_miravision_image_dc=1
+ro.mtk_wifi_mcc_support=1
+ro.mtk_sim_hot_swap=1
+ro.mtk_thumbnail_play_support=1
+ro.mtk_bip_scws=1
+ro.mtk_world_phone_policy=0
+ro.mtk_perfservice_support=1
+ro.mtk_cta_set=1
+ro.mtk_key_manager_support=1
+ro.mtk_antibricking_level=2
+ro.mtk_cam_mfb_support=0
+ro.mtk_uipq_support=1
+ro.mtk_safemedia_support=1
+ro.mtk_privacy_protection_lock=1
+ro.mtk_bg_power_saving_support=1
+ro.mtk_bg_power_saving_ui=1
+ro.mtk_dual_mic_support=0
+ro.mtk_is_tablet=0
+ro.mtk_sec_video_path_support=1
+
+persist.mtk.wcn.combo.chipid=-1
+mtklog_path = internal_sd
