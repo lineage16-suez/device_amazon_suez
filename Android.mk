@@ -28,4 +28,15 @@ ifneq ($(TARGET_SIMULATOR),true)
 include $(call first-makefiles-under,$(LOCAL_PATH))
 endif
 
+include $(CLEAR_VARS)
+
+FIRMWARE_SYMLINK := $(TARGET_OUT_ETC)/firmware
+$(FIRMWARE_SYMLINK): $(LOCAL_INSTALLED_MODULE)
+	@echo "firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /vendor/firmware $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_SYMLINK)
+
 endif
