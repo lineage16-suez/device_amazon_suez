@@ -55,31 +55,6 @@ endif
 BOARD_HAS_MTK_HARDWARE := true
 BOARD_USES_LEGACY_MTK_AV_BLOB := true
 
-# Shims
-TARGET_LD_SHIM_LIBS := \
-	/system/lib/liblog.so|libshim_lab126.so \
-	/system/lib64/liblog.so|libshim_lab126.so \
-	/system/vendor/lib64/hw/hwcomposer.mt8173.so|libshim_atomic.so \
-	/system/vendor/lib64/hw/hwcomposer.mt8173.so|libshim_ui.so \
-	/system/vendor/lib64/libsrv_um.so|libshim_atomic.so \
-	/system/vendor/lib/libsrv_um.so|libshim_atomic.so \
-	/system/vendor/lib64/libgui_ext.so|libshim_gui.so \
-	/system/vendor/lib/libmtkcam_stdutils.so|libshim_atomic.so \
-	/system/vendor/lib/hw/audio.primary.mt8173.so|libshim_atomic.so \
-	/system/vendor/lib/libasp.so|libshim_binder.so \
-	/system/vendor/lib64/libgui_ext.so|libshim_binder.so \
-	/system/vendor/lib64/libgui_ext.so|libshim_atomic.so \
-	/system/vendor/bin/audiocmdservice_atci|libshim_media.so \
-	/system/vendor/lib64/libui_ext.so|libshim_ui.so \
-	/vendor/lib/mediadrm/libwvdrmengine.so|libshim_crypto.so \
-	/system/vendor/bin/amzn_dha_hmac|libshim_crypto.so \
-	/system/vendor/bin/amzn_dha_tool|libshim_crypto.so \
-	/system/vendor/lib/libcam.hal3a.v3.so|libshim_atomic.so \
-	/system/vendor/lib/libcam_utils.so|libshim_ui.so \
-	/system/vendor/lib/libcam.utils.sensorlistener.so|libshim_sensor.so \
-	/system/vendor/lib/libmtk_mmutils.so|libshim_ui.so \
-	/system/vendor/lib/libcam.client.so|libshim_atomic.so
-
 # Binder API version
 TARGET_USES_64_BIT_BINDER := true
 
