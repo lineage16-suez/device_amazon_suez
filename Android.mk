@@ -35,7 +35,7 @@ $(FIRMWARE_SYMLINK): $(LOCAL_INSTALLED_MODULE)
 	@echo "firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /vendor/firmware $@
+	$(hide) ln -sf /vendor/etc/firmware $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_SYMLINK)
 
