@@ -844,12 +844,12 @@ service nvram_daemon /vendor/bin/nvram_daemon
 #start atci_service
 #start atcid-daemon-u
 
-#service audio-daemon /vendor/bin/audiocmdservice_atci
-#    class main
-#    socket atci-audio stream 660 root system
-#    user root
-#    disabled
-#    oneshot
+service audio-daemon /vendor/bin/audiocmdservice_atci
+    class main
+    socket atci-audio stream 660 root system
+    user root
+    disabled
+    oneshot
 
 service md_minilog_util /system/bin/md_minilog_util
     user root
