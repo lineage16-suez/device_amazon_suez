@@ -154,10 +154,6 @@ lib/libh264enc_sb.ca7.so:vendor/lib/libh264enc_sb.ca7.so
 lib/libhal_effects.so:vendor/lib/libhal_effects.so
 lib/libHEVCdec_sa.ca7.android.so:vendor/lib/libHEVCdec_sa.ca7.android.so
 lib/libhwm.so:vendor/lib/libhwm.so
-lib/libicudataamzn.so:vendor/lib/libicudataamzn.so
-lib/libicui18namzn.so:vendor/lib/libicui18namzn.so
-lib/libicuioamzn.so:vendor/lib/libicuioamzn.so
-lib/libicuucamzn.so:vendor/lib/libicuucamzn.so
 lib/libimageio_plat_drv.so:vendor/lib/libimageio_plat_drv.so
 lib/libimageio.so:vendor/lib/libimageio.so
 lib/libion_mtk.so:vendor/lib/libion_mtk.so
