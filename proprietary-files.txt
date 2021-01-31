@@ -71,7 +71,6 @@ etc/wifi/p2p_supplicant_overlay.conf:vendor/etc/wifi/p2p_supplicant_overlay.conf
 etc/wifi/wpa_supplicant_overlay.conf:vendor/etc/wifi/wpa_supplicant_overlay.conf
 etc/wifi/wpa_supplicant.conf:vendor/etc/wifi/wpa_supplicant.conf
 lib/drm/libdrmmtkplugin.so:vendor/lib/drm/libdrmmtkplugin.so
-lib/egl/libGLES_android.so:vendor/lib/egl/libGLES_android.so
 lib/hw/amzn_dha.mt8173.so:vendor/lib/hw/amzn_dha.mt8173.so
 lib/hw/amzn_drmprov.mt8173.so:vendor/lib/hw/amzn_drmprov.mt8173.so
 lib/hw/audio.primary.mt8173.so:vendor/lib/hw/audio.primary.mt8173.so
@@ -207,7 +206,6 @@ lib/libwpa_client.so:vendor/lib/libwpa_client.so
 lib/modules/ufsd.ko:vendor/lib/modules/ufsd.ko
 lib/soundfx/libaudiofx.so:vendor/lib/soundfx/libaudiofx.so
 lib64/drm/libdrmmtkplugin.so:vendor/lib64/drm/libdrmmtkplugin.so
-lib64/egl/libGLES_android.so:vendor/lib64/egl/libGLES_android.so
 lib64/hw/amzn_dha.mt8173.so:vendor/lib64/hw/amzn_dha.mt8173.so
 lib64/hw/amzn_drmprov.mt8173.so:vendor/lib64/hw/amzn_drmprov.mt8173.so
 lib64/hw/audio.primary.mt8173.so:vendor/lib64/hw/audio.primary.mt8173.so
