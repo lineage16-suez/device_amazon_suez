@@ -77,7 +77,8 @@ TARGET_LD_SHIM_LIBS := \
 	/system/vendor/lib/libcam.hal3a.v3.so|libshim_atomic.so \
 	/system/vendor/lib/libcam_utils.so|libshim_ui.so \
 	/system/vendor/lib/libcam.utils.sensorlistener.so|libshim_sensor.so \
-	/system/vendor/lib/libmtk_mmutils.so|libshim_ui.so
+	/system/vendor/lib/libmtk_mmutils.so|libshim_ui.so \
+	/system/vendor/lib/libcam.client.so|libshim_atomic.so
 
 # Binder API version
 TARGET_USES_64_BIT_BINDER := true
