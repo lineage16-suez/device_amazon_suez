@@ -162,6 +162,8 @@ BOARD_PLAT_PRIVATE_SEPOLICY_DIR += \
         $(DEVICE_PATH)/sepolicy-mtk/basic/plat_private \
         $(DEVICE_PATH)/sepolicy-mtk/bsp/plat_private
 
+-include $(DEVICE)/shims.mk
+
 # Assert
 TARGET_OTA_ASSERT_DEVICE := suez
 
