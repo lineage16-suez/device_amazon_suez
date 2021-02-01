@@ -144,3 +144,6 @@ TARGET_OTA_ASSERT_DEVICE := suez
 
 # Disable API check
 WITHOUT_CHECK_API := true
+
+# Use dlmalloc instead of jemalloc
+MALLOC_SVELTE := true
