@@ -96,12 +96,6 @@ lib/libaudiotoolkit.so:vendor/lib/libaudiotoolkit.so
 lib/libaudioutils.so:vendor/lib/libaudioutils.so
 lib/libbessound_hd_mtk.so:vendor/lib/libbessound_hd_mtk.so
 lib/libblisrc32.so:vendor/lib/libblisrc32.so
-lib/libbluetooth_hw_test.so:vendor/lib/libbluetooth_hw_test.so
-lib/libbluetooth_mtk_pure.so:vendor/lib/libbluetooth_mtk_pure.so
-lib/libbluetooth_mtk.so:vendor/lib/libbluetooth_mtk.so
-lib/libbluetooth_relayer.so:vendor/lib/libbluetooth_relayer.so
-lib/libbluetoothem_mtk.so:vendor/lib/libbluetoothem_mtk.so
-lib/libbt-vendor.so:vendor/lib/libbt-vendor.so
 lib/libbwc.so:vendor/lib/libbwc.so
 lib/libcam_hwutils.so:vendor/lib/libcam_hwutils.so
 lib/libcam_mmp.so:vendor/lib/libcam_mmp.so
@@ -231,11 +225,6 @@ lib64/libaudiotoolkit.so:vendor/lib64/libaudiotoolkit.so
 lib64/libaudioutils.so:vendor/lib64/libaudioutils.so
 lib64/libbessound_hd_mtk.so:vendor/lib64/libbessound_hd_mtk.so
 lib64/libblisrc32.so:vendor/lib64/libblisrc32.so
-lib64/libbluetooth_hw_test.so:vendor/lib64/libbluetooth_hw_test.so
-lib64/libbluetooth_mtk_pure.so:vendor/lib64/libbluetooth_mtk_pure.so
-lib64/libbluetooth_mtk.so:vendor/lib64/libbluetooth_mtk.so
-lib64/libbluetooth_relayer.so:vendor/lib64/libbluetooth_relayer.so
-lib64/libbluetoothem_mtk.so:vendor/lib64/libbluetoothem_mtk.so
 lib64/libbwc.so:vendor/lib64/libbwc.so
 lib64/libcam_hwutils.so:vendor/lib64/libcam_hwutils.so
 lib64/libcam_mmp.so:vendor/lib64/libcam_mmp.so

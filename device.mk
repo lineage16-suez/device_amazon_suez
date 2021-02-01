@@ -61,7 +61,8 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-	bluetooth.default
+    libbt-vendor \
+    libbluetooth_mtk
 
 # DRM
 PRODUCT_PACKAGES += \
