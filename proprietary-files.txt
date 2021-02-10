@@ -158,7 +158,7 @@ lib/libmhalImageCodec.so:vendor/lib/libmhalImageCodec.so
 lib/libmp4enc_sa.ca7.so:vendor/lib/libmp4enc_sa.ca7.so
 lib/libmp4enc_xa.ca7.so:vendor/lib/libmp4enc_xa.ca7.so
 lib/libmrdump.so:vendor/lib/libmrdump.so
-lib/libmtcloader.so:vendor/lib/libmtcloader.so
+lib/libmtcloader.so:system/lib/libmtcloader.so
 lib/libmtk_drvb.so:vendor/lib/libmtk_drvb.so
 lib/libmtk_drvb.so:vendor/lib/libmtk_drvb.so
 lib/libmtk_mmutils.so:vendor/lib/libmtk_mmutils.so
