@@ -72,3 +72,9 @@ LOCAL_SRC_FILES := xlog.c
 LOCAL_C_INCLUDES += system/core/include/
 LOCAL_SHARED_LIBRARIES := libcutils liblog libutils libbinder
 include $(BUILD_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := libshim_camera
+LOCAL_SRC_FILES := camera.cpp
+LOCAL_PROPRIETARY_MODULE := true
+include $(BUILD_SHARED_LIBRARY)
