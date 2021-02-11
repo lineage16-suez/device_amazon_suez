@@ -79,4 +79,5 @@ TARGET_LD_SHIM_LIBS += \
 	/vendor/lib64/libgui_ext.so|libshim_gui.so \
 	/vendor/lib64/libgui_ext.so|libshim_binder.so \
 	/vendor/lib64/libgui_ext.so|libshim_atomic.so \
-	/vendor/lib64/libui_ext.so|libshim_ui.so
+	/vendor/lib64/libui_ext.so|libshim_ui.so \
+	/vendor/lib/libgui_ext.so|libshim_gui.so
