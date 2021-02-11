@@ -12,6 +12,11 @@
 	<ctl name="Audio_Preamp2_Switch" value="OPEN" />
 	<ctl name="DL1_Playback_Mux" value="MTK_INTERFACE" />
 	<ctl name="DL2_Playback_Mux" value="MTK_INTERFACE" />
+	<!-- wakeword dsp setting -->
+	<ctl name="Sto1 ADC MIXR ADC Switch" value="0" />
+	<ctl name="Sto1 ADC MIXL ADC Switch" value="0" />
+	<ctl name="MIC Boost Volume" value="0" />
+	<ctl name="DSP Idle" value="1" />
 
 	<!-- These are actual sound device specific mixer settings -->
 	<path name="normal-playback speaker">
@@ -74,19 +79,19 @@
 		<ctl name="Audio_Digital_Mic_Switch" value="On"/>
 	</path>
 
-    <path name="builtin-mic">
-        <path name="adc1" />
-        <path name="adc2" />
-        <ctl name="Audio_Preamp1_Switch" value="AIN1"/>
-        <ctl name="Audio_Preamp2_Switch" value="AIN1"/>
-    </path>
+	<path name="builtin-mic">
+		<path name="adc1" />
+		<path name="adc2" />
+		<ctl name="Audio_Preamp1_Switch" value="AIN1"/>
+		<ctl name="Audio_Preamp2_Switch" value="AIN3"/>
+	</path>
 
-    <path name="back-mic">
-        <path name="adc1" />
-        <path name="adc2" />
-        <ctl name="Audio_Preamp1_Switch" value="AIN3"/>
-        <ctl name="Audio_Preamp2_Switch" value="AIN3"/>
-    </path>
+	<path name="back-mic">
+		<path name="adc1" />
+		<path name="adc2" />
+		<ctl name="Audio_Preamp1_Switch" value="AIN3"/>
+		<ctl name="Audio_Preamp2_Switch" value="AIN3"/>
+	</path>
 
 	<path name="headset-mic">
 		<path name="adc1" />
@@ -95,4 +100,11 @@
 		<ctl name="Audio_Preamp2_Switch" value="AIN2"/>
 	</path>
 
+	<!-- wakeword dsp setting -->
+	<path name="wakeword-mic">
+		<ctl name="Sto1 ADC MIXR ADC Switch" value="1" />
+		<ctl name="Sto1 ADC MIXL ADC Switch" value="1" />
+		<ctl name="MIC Boost Volume" value="3" />
+		<ctl name="DSP Idle" value="0" />
+	</path>
 </mixer>
