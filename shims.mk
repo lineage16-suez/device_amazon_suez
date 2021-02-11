@@ -57,6 +57,10 @@ TARGET_LD_SHIM_LIBS += \
 	/vendor/lib64/libcamdrv.so|libshim_atomic.so \
 	/vendor/lib64/libcam.iopipe.so|libshim_atomic.so
 
+# Media
+TARGET_LD_SHIM_LIBS += \
+	/vendor/lib/libh264enc_sb.ca7.so|libshim_xlog.so
+
 # DRM
 TARGET_LD_SHIM_LIBS += \
 	/vendor/bin/amzn_dha_hmac|libshim_crypto.so \

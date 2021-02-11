@@ -64,3 +64,11 @@ LOCAL_SHARED_LIBRARIES := libsensor libutils
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
+LOCAL_CFLAGS += $(LIBLOG_CFLAGS)
+LOCAL_MODULE := libshim_xlog
+LOCAL_SRC_FILES := xlog.c mtkaudio.cpp MediatekHacks.cpp
+LOCAL_C_INCLUDES += frameworks/av/media/mtp/ system/core/include/ frameworks/rs/server/ frameworks/av/include/ hardware/libhardware/include/
+LOCAL_SHARED_LIBRARIES := libcutils liblog libutils libbinder
+include $(BUILD_SHARED_LIBRARY)
