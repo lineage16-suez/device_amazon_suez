@@ -147,7 +147,6 @@ lib/libHEVCdec_sa.ca7.android.so:vendor/lib/libHEVCdec_sa.ca7.android.so
 lib/libhwm.so:vendor/lib/libhwm.so
 lib/libimageio_plat_drv.so:vendor/lib/libimageio_plat_drv.so
 lib/libimageio.so:vendor/lib/libimageio.so
-lib/libion_mtk.so:vendor/lib/libion_mtk.so
 lib/libJpgDecPipe.so:vendor/lib/libJpgDecPipe.so
 lib/libJpgEncPipe.so:vendor/lib/libJpgEncPipe.so
 lib/libm4u.so:vendor/lib/libm4u.so
