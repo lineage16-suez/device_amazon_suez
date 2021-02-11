@@ -63,8 +63,6 @@ etc/firmware/WMT.cfg:vendor/etc/firmware/WMT.cfg
 etc/media_codecs_mediatek_audio.xml:vendor/etc/media_codecs_mediatek_audio.xml
 etc/media_codecs_mediatek_video.xml:vendor/etc/media_codecs_mediatek_video.xml
 etc/media_codecs_performance.xml:vendor/etc/media_codecs_performance.xml
-etc/mixer_paths.xml:vendor/etc/mixer_paths.xml
-etc/mtk_omx_core.cfg:vendor/etc/mtk_omx_core.cfg
 etc/mtklog-config.prop:vendor/etc/mtklog-config.prop
 etc/powervr.ini:vendor/etc/powervr.ini
 etc/wifi/p2p_supplicant_overlay.conf:vendor/etc/wifi/p2p_supplicant_overlay.conf
