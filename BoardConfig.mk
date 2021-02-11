@@ -119,9 +119,6 @@ DEVICE_MATRIX_FILE   := $(DEVICE)/compatibility_matrix.xml
 # Vold
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun%d/file
 
-# Seccomp filters
-BOARD_SECCOMP_POLICY += $(DEVICE)/seccomp
-
 # SELinux
 BOARD_SEPOLICY_DIRS += \
         $(DEVICE_PATH)/sepolicy-mtk/basic/non_plat \
