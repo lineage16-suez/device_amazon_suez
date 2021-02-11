@@ -35,6 +35,7 @@ TARGET_LD_SHIM_LIBS += \
 	/vendor/lib/libcam.halsensor.so|libshim_atomic.so \
 	/vendor/lib/libcamdrv.so|libshim_atomic.so \
 	/vendor/lib/libcam.iopipe.so|libshim_atomic.so \
+	/vendor/lib/libcam.halsensor.so|libshim_camera.so \
 	/vendor/lib/libmtk_mmutils.so|libshim_ui.so \
 	/vendor/lib64/libcam3_hwnode.so|libshim_atomic.so \
 	/vendor/lib64/libfeatureiodrv.so|libshim_atomic.so \
