@@ -82,8 +82,13 @@ service.wcn.driver.ready=no
 service.wcn.coredump.mode=2
 
 debug.sf.treble_testing_override=true
-debug.hwui.renderer=opengl
 ro.mtk_key_manager_kb_path=1
+
+debug.hwui.renderer=opengl \
+debug.hwui.use_partial_updates=false
+debug.sf.disable_backpressure=1
+debug.sf.latch_unsignaled=1
+persist.sys.display.clearMotion=1
 
 ro.mediatek.platform=MT8173
 ro.mediatek.chip_ver=S01
