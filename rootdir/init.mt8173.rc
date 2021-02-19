@@ -791,14 +791,6 @@ service mobile_log_d /system/bin/mobile_log_d
 service met_log_d /system/bin/met_log_d
     class main
 
-# bugreport is triggered by holding down volume down, volume up and power
-service bugreport /system/bin/dumpstate -d -p -B \
-        -o /data/data/com.android.shell/files/bugreports/bugreport
-    class main
-    disabled
-    oneshot
-    keycodes 114 115 116
-
 service netdiag /system/bin/netdiag
     class main
 
