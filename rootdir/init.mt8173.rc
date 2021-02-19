@@ -763,18 +763,18 @@ service start_modem /system/bin/md_ctrl 1
     oneshot
 # Define TCP buffer sizes for various networks
 #   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
-    setprop net.tcp.buffersize.default 4096,87380,524288,4096,16384,524288
-    setprop net.tcp.buffersize.wifi    524288,1048576,2097152,262144,524288,1048576
-    setprop net.tcp.buffersize.lte     524288,1048576,2097152,262144,524288,1048576
-    setprop net.tcp.buffersize.umts    4094,87380,524288,4096,16384,524288
-    setprop net.tcp.buffersize.hspa    4094,87380,524288,4096,16384,524288
-    setprop net.tcp.buffersize.hsupa   4094,87380,524288,4096,16384,524288
-    setprop net.tcp.buffersize.hsdpa   4094,87380,524288,4096,16384,524288
-    setprop net.tcp.buffersize.hspap   4094,87380,1220608,4096,16384,1220608
-    setprop net.tcp.buffersize.edge    4093,26280,35040,4096,16384,35040
-    setprop net.tcp.buffersize.gprs    4092,8760,11680,4096,8760,11680
+    exec /system/bin/setprop net.tcp.buffersize.default 4096,87380,524288,4096,16384,524288
+    exec /system/bin/setprop net.tcp.buffersize.wifi    524288,1048576,2097152,262144,524288,1048576
+    exec /system/bin/setprop net.tcp.buffersize.lte     524288,1048576,2097152,262144,524288,1048576
+    exec /system/bin/setprop net.tcp.buffersize.umts    4094,87380,524288,4096,16384,524288
+    exec /system/bin/setprop net.tcp.buffersize.hspa    4094,87380,524288,4096,16384,524288
+    exec /system/bin/setprop net.tcp.buffersize.hsupa   4094,87380,524288,4096,16384,524288
+    exec /system/bin/setprop net.tcp.buffersize.hsdpa   4094,87380,524288,4096,16384,524288
+    exec /system/bin/setprop net.tcp.buffersize.hspap   4094,87380,1220608,4096,16384,1220608
+    exec /system/bin/setprop net.tcp.buffersize.edge    4093,26280,35040,4096,16384,35040
+    exec /system/bin/setprop net.tcp.buffersize.gprs    4092,8760,11680,4096,8760,11680
 
-    setprop persist.sys.strictmode.disable 1
+    exec /system/bin/setprop persist.sys.strictmode.disable 1
 
 ## mtk printk uart controller
 on property:persist.uartconsole.enable=1
@@ -1387,11 +1387,11 @@ chmod 777 /etc/ppp/ip-down-ppp0
 #
 
 #set the property of persiste.radio.reset_on_switch
-setprop persist.radio.reset_on_switch true
+exec /system/bin/setprop persist.radio.reset_on_switch true
 #end
 
 #set the property of rild.mark_switchuser
-setprop rild.mark_switchuser 0
+exec /system/bin/setprop rild.mark_switchuser 0
 #end
 
 chmod 0644 /system/lib/libzteevdo-ril.so
