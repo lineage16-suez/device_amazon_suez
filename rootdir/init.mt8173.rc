@@ -1423,7 +1423,6 @@ service usbdongled /system/bin/dongled
     class main
 	user root
 	group radio cache inet misc
-	enabled
 
 
 #
