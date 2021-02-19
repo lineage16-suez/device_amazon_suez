@@ -780,16 +780,6 @@ service start_modem /system/bin/md_ctrl 1
 on property:persist.uartconsole.enable=1
     write /proc/mtprintk 1
 
-service mobile_log_d /system/bin/mobile_log_d
-    class main
-
-service met_log_d /system/bin/met_log_d
-    class main
-
-service netdiag /system/bin/netdiag
-    class main
-
-
 service nvram_daemon /vendor/bin/nvram_daemon
     class main
     user root
