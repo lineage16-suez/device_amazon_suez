@@ -1395,7 +1395,7 @@ exec /system/bin/setprop rild.mark_switchuser 0
 #end
 
 chmod 0644 /system/lib/libzteevdo-ril.so
-chomd 0644 /system/lib/zterilPara
+chmod 0644 /system/lib/zterilPara
 chown root /system/bin/pppd
 chmod 4755 /system/bin/pppd
 chown root /system/bin/chat
