@@ -146,4 +146,4 @@ persist.mtk.wcn.combo.chipid=-1
 mtklog_path = internal_sd
 
 ro.hardware.egl=POWERVR_ROGUE
-
+ro.board.platform=mt8173
