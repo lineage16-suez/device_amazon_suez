@@ -81,10 +81,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libion
 
-# Lights
-PRODUCT_PACKAGES += \
-    lights.mt8173
-
 # Media
 PRODUCT_PACKAGES += \
     libnbaio_mono

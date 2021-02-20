@@ -203,6 +203,7 @@ lib64/hw/audio.primary.mt8173.so:vendor/lib64/hw/audio.primary.mt8173.so
 lib64/hw/camera.mt8173.so:vendor/lib64/hw/camera.mt8173.so
 lib64/hw/hwcomposer.mt8173.so:vendor/lib64/hw/hwcomposer.mt8173.so
 lib64/hw/keystore.mt8173.so:vendor/lib64/hw/keystore.mt8173.so
+lib64/hw/lights.mt8173.so:vendor/lib64/hw/lights.mt8173.so
 lib64/hw/memtrack.mt8173.so:vendor/lib64/hw/memtrack.mt8173.so
 lib64/hw/perfboost.default.so:vendor/lib64/hw/perfboost.default.so
 lib64/hw/perfboost.mt8173.so:vendor/lib64/hw/perfboost.mt8173.so
