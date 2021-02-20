@@ -37,10 +37,10 @@ bin/thermal_manager:vendor/bin/thermal_manager
 bin/wifitesttool:vendor/bin/wifitesttool
 bin/wmt_loader:vendor/bin/wmt_loader
 bin/wpa_supplicant:vendor/bin/wpa_supplicant
-etc/.tp/.ht120.mtc:vendor/etc/.tp/.ht120.mtc
-etc/.tp/thermal.conf:vendor/etc/.tp/thermal.conf
-etc/.tp/thermal.off.conf:vendor/etc/.tp/thermal.off.conf
-etc/.tp/thermal.policy.conf:vendor/etc/.tp/thermal.policy.conf
+etc/.tp/.ht120.mtc #:vendor/etc/.tp/.ht120.mtc
+etc/.tp/thermal.conf #:vendor/etc/.tp/thermal.conf
+etc/.tp/thermal.off.conf #:vendor/etc/.tp/thermal.off.conf
+etc/.tp/thermal.policy.conf #:vendor/etc/.tp/thermal.policy.conf
 etc/audio_param/AudioParamOptions.xml:vendor/etc/audio_param/AudioParamOptions.xml
 etc/audio_policy.conf:vendor/etc/audio_policy.conf
 etc/firmware/mt6630_ant_m1.cfg:vendor/etc/firmware/mt6630_ant_m1.cfg
