@@ -62,7 +62,8 @@ TARGET_LD_SHIM_LIBS += \
 TARGET_LD_SHIM_LIBS += \
 	/vendor/lib/libh264enc_sb.ca7.so|libshim_xlog.so \
 	/vendor/lib/libMtkOmxVdecEx.so|libshim_ui.so \
-	/vendor/lib/libMtkOmxVdecEx.so|libshim_atomic.so
+	/vendor/lib/libMtkOmxVdecEx.so|libshim_atomic.so \
+	/vendor/lib/libMtkOmxVenc.so|libshim_atomic.so
 
 # DRM
 TARGET_LD_SHIM_LIBS += \
