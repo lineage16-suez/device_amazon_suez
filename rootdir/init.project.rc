@@ -246,12 +246,6 @@ service logcat_log /system/bin/logcat_log.sh
 	oneshot
 	disabled
 
-# wifi_log_levels metrics service
-service wifi_log_levels /system/etc/wifi_log_levels.sh
-    class late_start
-    user root
-    group root
-
 #monitor battery status
 service bat_logging /system/bin/battery_lifetime_data
     class main
