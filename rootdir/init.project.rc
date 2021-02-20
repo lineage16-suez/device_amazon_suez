@@ -247,7 +247,7 @@ service logcat_log /system/bin/logcat_log.sh
 	disabled
 
 #monitor battery status
-service bat_logging /system/bin/battery_lifetime_data
+service bat_logging /vendor/bin/battery_lifetime_data
     class main
     user root
     group root
