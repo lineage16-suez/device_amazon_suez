@@ -144,3 +144,6 @@ ro.mtk_sec_video_path_support=1
 
 persist.mtk.wcn.combo.chipid=-1
 mtklog_path = internal_sd
+
+ro.hardware.egl=POWERVR_ROGUE
+
