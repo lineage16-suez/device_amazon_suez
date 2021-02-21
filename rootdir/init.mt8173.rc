@@ -727,7 +727,7 @@ service autokd /vendor/bin/autokd
     user system
     group system
 
-service wpa_supplicant /system/vendor/bin/hw/wpa_supplicant \
+service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
     -puse_p2p_group_interface \
     -O/data/vendor/wifi/wpa/sockets/ \
     -g@android:wpa_wlan0
@@ -860,7 +860,7 @@ service thermal_manager /vendor/bin/thermal_manager
     oneshot
 
 # IMG GPU init
-service pvrsrvctl /system/vendor/bin/pvrsrvctl --no-module  --start
+service pvrsrvctl /vendor/bin/pvrsrvctl --no-module  --start
 	class core
 	user root
 	group root
