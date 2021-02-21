@@ -81,6 +81,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libion
 
+# GX6250 GPU
+PRODUCT_COPY_FILES += \
+    $(DEVICE)/gx6250/powervr.ini:system/etc/powervr.ini
+
 # Media
 PRODUCT_PACKAGES += \
     libnbaio_mono
