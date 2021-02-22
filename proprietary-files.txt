@@ -64,7 +64,6 @@ etc/media_codecs_mediatek_audio.xml:vendor/etc/media_codecs_mediatek_audio.xml
 etc/media_codecs_mediatek_video.xml:vendor/etc/media_codecs_mediatek_video.xml
 etc/media_codecs_performance.xml:vendor/etc/media_codecs_performance.xml
 etc/mtklog-config.prop:vendor/etc/mtklog-config.prop
-etc/powervr.ini:vendor/etc/powervr.ini
 etc/wifi/p2p_supplicant_overlay.conf:vendor/etc/wifi/p2p_supplicant_overlay.conf
 etc/wifi/wpa_supplicant_overlay.conf:vendor/etc/wifi/wpa_supplicant_overlay.conf
 etc/wifi/wpa_supplicant.conf:vendor/etc/wifi/wpa_supplicant.conf
