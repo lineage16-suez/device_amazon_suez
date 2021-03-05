@@ -83,7 +83,9 @@ PRODUCT_PACKAGES += \
 
 # GX6250 GPU
 PRODUCT_COPY_FILES += \
-    $(DEVICE)/gx6250/powervr.ini:system/etc/powervr.ini
+    $(DEVICE)/gx6250/powervr.ini:$(TARGET_COPY_OUT_VENDOR)/etc/powervr.ini \
+    $(DEVICE)/gx6250/libion_mtk.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libion_mtk.so \
+    $(DEVICE)/gx6250/libion_ulit.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libion_ulit.so
 
 # Media
 PRODUCT_PACKAGES += \
