@@ -715,12 +715,6 @@ service audio-daemon /vendor/bin/audiocmdservice_atci
     disabled
     oneshot
 
-service pq /vendor/bin/pq
-    class main
-    user system
-    group system graphics
-    oneshot
-
 # For WiFi High Speed calibration
 service autokd /vendor/bin/autokd
     class core
