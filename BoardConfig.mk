@@ -121,6 +121,7 @@ BOARD_USE_SOFT_GATEKEEPER := true
 
 # OTA
 BLOCK_BASED_OTA := false
+TARGET_OTA_ASSERT_DEVICE := suez
 
 # Mainfest
 DEVICE_MANIFEST_FILE := $(DEVICE)/manifest.xml
@@ -146,9 +147,6 @@ BOARD_PLAT_PRIVATE_SEPOLICY_DIR += \
         $(DEVICE_PATH)/sepolicy-mtk/bsp/plat_private
 
 -include $(DEVICE)/shims.mk
-
-# Assert
-TARGET_OTA_ASSERT_DEVICE := suez
 
 # Disable API check
 WITHOUT_CHECK_API := true
