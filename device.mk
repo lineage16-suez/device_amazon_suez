@@ -10,6 +10,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 PRODUCT_AAPT_CONFIG := normal mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
 
+# BootAnimation
+TARGET_SCREEN_WIDTH := 1200
+TARGET_SCREEN_HEIGHT := 1920
+
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml \
@@ -91,9 +95,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libnbaio_mono
 
-# Mediatek build
-MTK_PROJECT_NAME := $(DEVICE)/ProjectConfig.mk
-
 PRODUCT_COPY_FILES += \
     $(DEVICE)/media/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
     $(DEVICE)/media/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
@@ -106,6 +107,9 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video_le.xml
+
+# Mediatek build
+MTK_PROJECT_NAME := $(DEVICE)/ProjectConfig.mk
 
 # network
 PRODUCT_PACKAGES += \
@@ -134,12 +138,6 @@ PRODUCT_PACKAGES += \
     libshim_camera
 
 # Wifi
-PRODUCT_COPY_FILES += \
-    $(DEVICE)/wifi/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf \
-    $(DEVICE)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
-    $(DEVICE)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
-
-# Wifi
 PRODUCT_PACKAGES += \
     lib_driver_cmd_mt66xx \
     libwifi-hal-mt66xx \
@@ -149,8 +147,15 @@ PRODUCT_PACKAGES += \
     wifilogd \
     wpa_supplicant
 
+PRODUCT_COPY_FILES += \
+    $(DEVICE)/wifi/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf \
+    $(DEVICE)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
+    $(DEVICE)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
+
+# EXFat
 WITH_EXFAT := true
 
+# PROP Overrides
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 # HIDL

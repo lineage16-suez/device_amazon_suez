@@ -46,7 +46,7 @@ BOARD_KERNEL_CMDLINE += lcm=0-nt51021_wuxga_dsi_vdo
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_SOURCE := $(KERNEL)
-KERNEL_TOOLCHAIN_PREFIX := /home/ggow/Android/lineage-16.0/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-android-
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := $(shell pwd)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-android-
 
 # Enable debug on eng builds
 ifeq ($(TARGET_BUILD_VARIANT),eng)
@@ -60,6 +60,7 @@ BOARD_USES_LEGACY_MTK_AV_BLOB := true
 # Binder API version
 TARGET_USES_64_BIT_BINDER := true
 
+# WiFi
 BOARD_WLAN_DEVICE := MediaTek
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 BOARD_HOSTAPD_DRIVER := NL80211
@@ -119,7 +120,9 @@ TARGET_USERIMAGES_USE_EXT4 := true
 # Software Gatekeeper
 BOARD_USE_SOFT_GATEKEEPER := true
 
+# OTA
 BLOCK_BASED_OTA := false
+TARGET_OTA_ASSERT_DEVICE := suez
 
 # Mainfest
 DEVICE_MANIFEST_FILE := $(DEVICE)/manifest.xml
@@ -145,9 +148,6 @@ BOARD_PLAT_PRIVATE_SEPOLICY_DIR += \
         $(DEVICE_PATH)/sepolicy-mtk/bsp/plat_private
 
 -include $(DEVICE)/shims.mk
-
-# Assert
-TARGET_OTA_ASSERT_DEVICE := suez
 
 # Disable API check
 WITHOUT_CHECK_API := true
