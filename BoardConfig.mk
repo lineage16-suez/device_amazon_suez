@@ -119,6 +119,7 @@ TARGET_USERIMAGES_USE_EXT4 := true
 # Software Gatekeeper
 BOARD_USE_SOFT_GATEKEEPER := true
 
+# OTA
 BLOCK_BASED_OTA := false
 
 # Mainfest
