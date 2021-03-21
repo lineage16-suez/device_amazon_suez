@@ -23,10 +23,6 @@ $(call inherit-product, device/amazon/suez/full_suez.mk)
 # Product Charateristics
 PRODUCT_CHARACTERISTICS := tablet
 
-# BootAnimation
-TARGET_SCREEN_WIDTH := 1200
-TARGET_SCREEN_HEIGHT := 1920
-
 # Set those variables here to overwrite the inherited values.
 BOARD_VENDOR := amzn
 PRODUCT_BRAND := google
