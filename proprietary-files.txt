@@ -271,6 +271,7 @@ lib64/libhal_effects.so:vendor/lib64/libhal_effects.so
 lib64/libhwm.so:vendor/lib64/libhwm.so
 lib64/libimageio_plat_drv.so:vendor/lib64/libimageio_plat_drv.so
 lib64/libimageio.so:vendor/lib64/libimageio.so
+lib64/libion_mtk.so:vendor/lib64/libion_mtk.so
 lib64/libJpgDecPipe.so:vendor/lib64/libJpgDecPipe.so
 lib64/libJpgEncPipe.so:vendor/lib64/libJpgEncPipe.so
 lib64/libm4u.so:vendor/lib64/libm4u.so
