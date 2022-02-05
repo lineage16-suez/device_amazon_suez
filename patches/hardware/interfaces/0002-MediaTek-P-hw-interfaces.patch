@@ -1,0 +1,127 @@
+From c607d91377147ca1452e01b76435fefb6a33b138 Mon Sep 17 00:00:00 2001
+From: Kai <zaksenoj@icloud.com>
+Date: Mon, 14 Oct 2019 22:52:38 -0700
+Subject: [PATCH] hardware/interfaces:add required changes for mt8163 * add
+ legacy audio support * downgrade sensor version to 1.0 * add support for
+ mediatek cameras Signed-off-by: Kai Jones <joneskai626@gmail.com>
+
+Change-Id: I8400d31ae4891562b207285a952c3bbc2ac691f5
+---
+ audio/common/all-versions/default/service/Android.mk      | 8 ++++++++
+ audio/core/2.0/default/Android.bp                         | 1 +
+ audio/core/4.0/default/Android.bp                         | 1 +
+ .../include/core/all-versions/default/StreamOut.impl.h    | 1 +
+ camera/device/1.0/default/CameraDevice.cpp                | 4 +++-
+ camera/provider/2.4/default/service.cpp                   | 2 +-
+ sensors/1.0/default/Sensors.cpp                           | 2 +-
+ 7 files changed, 16 insertions(+), 3 deletions(-)
+
+diff --git a/audio/common/all-versions/default/service/Android.mk b/audio/common/all-versions/default/service/Android.mk
+index 73d03f100..ceeaa9c07 100644
+--- a/audio/common/all-versions/default/service/Android.mk
++++ b/audio/common/all-versions/default/service/Android.mk
+@@ -57,6 +57,14 @@ else
+ LOCAL_MULTILIB := $(AUDIOSERVER_MULTILIB)
+ endif
+
++ifeq ($(TARGET_USES_BCRADIO_FUTURE_FEATURES),true)
++LOCAL_CFLAGS += -DTARGET_USES_BCRADIO_FUTURE_FEATURES
++endif
++
++ifeq ($(SUPPRESS_MTK_AUDIO_BLOB_ERR_MSG),true)
++LOCAL_CFLAGS += -DSUPPRESS_MTK_AUDIO_BLOB_ERR_MSG
++endif
++
+ ifeq ($(TARGET_ARCH),arm)
+     LOCAL_CFLAGS += -DARCH_ARM_32
+ endif
+diff --git a/audio/core/2.0/default/Android.bp b/audio/core/2.0/default/Android.bp
+index 625df74a8..1c9736b42 100644
+--- a/audio/core/2.0/default/Android.bp
++++ b/audio/core/2.0/default/Android.bp
+@@ -16,6 +16,7 @@ cc_library_shared {
+
+     cflags: [
+         "-DAUDIO_HAL_VERSION_2_0",
++	"-DSUPPRESS_MTK_AUDIO_BLOB_ERR_MSG",
+     ],
+
+     defaults: ["hidl_defaults"],
+diff --git a/audio/core/4.0/default/Android.bp b/audio/core/4.0/default/Android.bp
+index 8e415459b..d50601c9f 100644
+--- a/audio/core/4.0/default/Android.bp
++++ b/audio/core/4.0/default/Android.bp
+@@ -16,6 +16,7 @@ cc_library_shared {
+
+     cflags: [
+         "-DAUDIO_HAL_VERSION_4_0",
++	"-DSUPPRESS_MTK_AUDIO_BLOB_ERR_MSG",
+     ],
+
+     defaults: ["hidl_defaults"],
+diff --git a/audio/core/all-versions/default/include/core/all-versions/default/StreamOut.impl.h b/audio/core/all-versions/default/include/core/all-versions/default/StreamOut.impl.h
+index 6fb157f7d..1f872fb3f 100644
+--- a/audio/core/all-versions/default/include/core/all-versions/default/StreamOut.impl.h
++++ b/audio/core/all-versions/default/include/core/all-versions/default/StreamOut.impl.h
+@@ -504,6 +504,7 @@ Result StreamOut::getPresentationPositionImpl(audio_stream_out_t* stream, uint64
+     // continuously querying it, but the stream has been stopped.
+     static const std::vector<int> ignoredErrors{EINVAL, EAGAIN, ENODATA};
+     Result retval(Result::NOT_SUPPORTED);
++    if (true) return retval;
+     if (stream->get_presentation_position == NULL) return retval;
+     struct timespec halTimeStamp;
+     retval = Stream::analyzeStatus("get_presentation_position",
+diff --git a/camera/device/1.0/default/CameraDevice.cpp b/camera/device/1.0/default/CameraDevice.cpp
+index a1f1830fd..80f13faa8 100644
+--- a/camera/device/1.0/default/CameraDevice.cpp
++++ b/camera/device/1.0/default/CameraDevice.cpp
+@@ -35,6 +35,7 @@ using ::android::hardware::graphics::common::V1_0::BufferUsage;
+ using ::android::hardware::graphics::common::V1_0::PixelFormat;
+
+ HandleImporter CameraDevice::sHandleImporter;
++	CameraDevice* sUser = nullptr;
+
+ Status CameraDevice::getHidlStatus(const int& status) {
+     switch (status) {
+@@ -361,7 +362,7 @@ CameraDevice::CameraHeapMemory::~CameraHeapMemory() {
+ // shared memory methods
+ camera_memory_t* CameraDevice::sGetMemory(int fd, size_t buf_size, uint_t num_bufs, void *user) {
+     ALOGV("%s", __FUNCTION__);
+-    CameraDevice* object = static_cast<CameraDevice*>(user);
++    CameraDevice* object = (user == nullptr)? sUser : static_cast<CameraDevice*>(user);
+     if (object->mDeviceCallback == nullptr) {
+         ALOGE("%s: camera HAL request memory while camera is not opened!", __FUNCTION__);
+         return nullptr;
+@@ -718,6 +719,7 @@ Return<Status> CameraDevice::open(const sp<ICameraDeviceCallback>& callback) {
+ #endif
+
+     if (mDevice->ops->set_callbacks) {
++	sUser = this;
+         mDevice->ops->set_callbacks(mDevice,
+                 sNotifyCb, sDataCb, sDataCbTimestamp, sGetMemory, this);
+     }
+diff --git a/camera/provider/2.4/default/service.cpp b/camera/provider/2.4/default/service.cpp
+index 7eeb6379c..f11fa6f3f 100644
+--- a/camera/provider/2.4/default/service.cpp
++++ b/camera/provider/2.4/default/service.cpp
+@@ -29,6 +29,6 @@ int main()
+     ALOGI("Camera provider Service is starting.");
+     // The camera HAL may communicate to other vendor components via
+     // /dev/vndbinder
+-    android::ProcessState::initWithDriver("/dev/vndbinder");
++    // android::ProcessState::initWithDriver("/dev/vndbinder");
+     return defaultPassthroughServiceImplementation<ICameraProvider>("legacy/0", /*maxThreads*/ 6);
+ }
+diff --git a/sensors/1.0/default/Sensors.cpp b/sensors/1.0/default/Sensors.cpp
+index 1100dd6a2..c41a74412 100644
+--- a/sensors/1.0/default/Sensors.cpp
++++ b/sensors/1.0/default/Sensors.cpp
+@@ -95,7 +95,7 @@ Sensors::Sensors()
+
+     // Require all the old HAL APIs to be present except for injection, which
+     // is considered optional.
+-    CHECK_GE(getHalDeviceVersion(), SENSORS_DEVICE_API_VERSION_1_3);
++    CHECK_GE(getHalDeviceVersion(), SENSORS_DEVICE_API_VERSION_1_0);
+
+     if (getHalDeviceVersion() == SENSORS_DEVICE_API_VERSION_1_4) {
+         if (mSensorDevice->inject_sensor_data == nullptr) {
