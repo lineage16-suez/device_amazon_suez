@@ -55,7 +55,16 @@ endif
 
 # Board has Mediatek hardware
 BOARD_HAS_MTK_HARDWARE := true
+BOARD_USES_MTK_HARDWARE := true
+MTK_HARDWARE := true
 BOARD_USES_LEGACY_MTK_AV_BLOB := true
+BOARD_USES_MTK_AUDIO := true
+
+# Suppress MTK audio blob error message flag
+SUPPRESS_MTK_AUDIO_BLOB_ERR_MSG := true
+
+# MTK AV blob flag
+LEGACY_MTK_AV_BLOB := true
 
 # Binder API version
 TARGET_USES_64_BIT_BINDER := true
