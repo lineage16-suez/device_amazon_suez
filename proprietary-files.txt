@@ -162,10 +162,10 @@ lib/libmtkcamera_client.so:vendor/lib/libmtkcamera_client.so
 lib/libmtkjpeg.so:vendor/lib/libmtkjpeg.so
 lib/libmtklimiter.so:vendor/lib/libmtklimiter.so
 lib/libMtkOmxAIVPlayer.so:vendor/lib/libMtkOmxAIVPlayer.so
-lib/libMtkOmxCore.so:vendor/lib/libMtkOmxCore.so
+lib/libMtkOmxCore.so:vendor/lib/libMtkOmxCore.so|fd999450185f4535657e94181daf5d20ed734bef
 lib/libMtkOmxMp3Dec.so:vendor/lib/libMtkOmxMp3Dec.so
-lib/libMtkOmxVdecEx.so:vendor/lib/libMtkOmxVdecEx.so
-lib/libMtkOmxVenc.so:vendor/lib/libMtkOmxVenc.so
+lib/libMtkOmxVdecEx.so:vendor/lib/libMtkOmxVdecEx.so|c9839c9ea7620e131bb20e6fe91b2241ee3d6cb3
+lib/libMtkOmxVenc.so:vendor/lib/libMtkOmxVenc.so|2d551d7575398320a3a6814576ad96386c101e09
 lib/libmtkplayer.so:vendor/lib/libmtkplayer.so
 lib/libmtkshifter.so:vendor/lib/libmtkshifter.so
 lib/libn3d3a.so:vendor/lib/libn3d3a.so
@@ -283,7 +283,7 @@ lib64/libmtk_mmutils.so:vendor/lib64/libmtk_mmutils.so
 lib64/libmtkcamera_client.so:vendor/lib64/libmtkcamera_client.so
 lib64/libmtkjpeg.so:vendor/lib64/libmtkjpeg.so
 lib64/libmtklimiter.so:vendor/lib64/libmtklimiter.so
-lib64/libMtkOmxCore.so:vendor/lib64/libMtkOmxCore.so
+lib64/libMtkOmxCore.so:vendor/lib64/libMtkOmxCore.so|8815e46772ddd1d517fef2c9b98b03f89ff30552
 lib64/libmtkplayer.so:vendor/lib64/libmtkplayer.so
 lib64/libmtkshifter.so:vendor/lib64/libmtkshifter.so
 lib64/libn3d3a.so:vendor/lib64/libn3d3a.so
