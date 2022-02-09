@@ -82,7 +82,7 @@ lib/libcam.exif.so:vendor/lib/libcam.exif.so
 lib/libcam.exif.v3.so:vendor/lib/libcam.exif.v3.so
 lib/libcam.hal3a.v3.dng.so:vendor/lib/libcam.hal3a.v3.dng.so
 lib/libcam.hal3a.v3.so:vendor/lib/libcam.hal3a.v3.so
-#lib/libcam.halsensor.so:vendor/lib/libcam.halsensor.so
+lib/libcam.halsensor.so:vendor/lib/libcam.halsensor.so
 lib/libcam.iopipe.so:vendor/lib/libcam.iopipe.so
 lib/libcam.metadata.so:vendor/lib/libcam.metadata.so
 lib/libcam.metadataprovider.so:vendor/lib/libcam.metadataprovider.so
