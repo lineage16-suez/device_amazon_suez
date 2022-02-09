@@ -74,8 +74,8 @@ PRODUCT_COPY_FILES += \
     $(DEVICE)/bluetooth/aptx/libaptXHD_encoder.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libaptXHD_encoder.so
 
 # Camera
-PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(DEVICE)/camera/hal,$(TARGET_COPY_OUT_VENDOR)/lib)
+#PRODUCT_COPY_FILES += \
+
 
 # DRM
 PRODUCT_PACKAGES += \
