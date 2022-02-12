@@ -93,7 +93,7 @@ vendor/lib64/libsrv_um.so
 vendor/lib64/libusc.so
 
 # Graphics (pq)
-bin/pq:vendor/bin/bq
+bin/pq:vendor/bin/pq
 lib/libpq_prot.so:vendor/lib/libpq_prot.so
 lib/libpq_cust.so:vendor/lib/libpq_cust.so
 lib64/libpq_prot.so:vendor/lib64/libpq_prot.so
