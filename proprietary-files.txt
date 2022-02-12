@@ -138,8 +138,6 @@ lib64/libcameracustom.so:vendor/lib64/libcameracustom.so
 lib64/libmtkcamera_client.so:vendor/lib64/libmtkcamera_client.so
 lib/libdngop.so:vendor/lib/libdngop.so
 lib64/libdngop.so:vendor/lib64/libdngop.so
-lib/libdpframework.so:vendor/lib/libdpframework.so
-lib64/libdpframework.so:vendor/lib64/libdpframework.so
 lib/libmrdump.so:vendor/lib/libmrdump.so
 lib64/libmrdump.so:vendor/lib64/libmrdump.so
 lib/libimageio_plat_drv.so:vendor/lib/libimageio_plat_drv.so
@@ -178,6 +176,8 @@ vendor/bin/pvrdebug
 vendor/bin/pvrsrvctl
 lib/hw/hwcomposer.mt8173.so:vendor/lib/hw/hwcomposer.mt8173.so
 lib64/hw/hwcomposer.mt8173.so:vendor/lib64/hw/hwcomposer.mt8173.so
+lib/libdpframework.so:vendor/lib/libdpframework.so
+lib64/libdpframework.so:vendor/lib64/libdpframework.so
 vendor/lib/egl/libEGL_POWERVR_ROGUE.so
 vendor/lib/egl/libGLESv1_CM_POWERVR_ROGUE.so
 vendor/lib/egl/libGLESv2_POWERVR_ROGUE.so
