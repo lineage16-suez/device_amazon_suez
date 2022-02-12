@@ -67,8 +67,6 @@ vendor/bin/pvrdebug
 vendor/bin/pvrsrvctl
 lib/hw/hwcomposer.mt8173.so:vendor/lib/hw/hwcomposer.mt8173.so
 lib64/hw/hwcomposer.mt8173.so:vendor/lib64/hw/hwcomposer.mt8173.so
-lib/libdpframework.so:vendor/lib/libdpframework.so
-lib64/libdpframework.so:vendor/lib64/libdpframework.so
 vendor/lib/egl/libEGL_POWERVR_ROGUE.so
 vendor/lib/egl/libGLESv1_CM_POWERVR_ROGUE.so
 vendor/lib/egl/libGLESv2_POWERVR_ROGUE.so
@@ -93,6 +91,13 @@ vendor/lib64/libsrv_init.so
 vendor/lib64/libsrv_um.so
 vendor/lib64/libusc.so
 
+# Graphics (pq)
+bin/pq:vendor/bin/bq
+lib/libpq_prot.so:vendor/lib/libpq_prot.so
+lib/libpq_cust.so:vendor/lib/libpq_cust.so
+lib64/libpq_prot.so:vendor/lib64/libpq_prot.so
+lib64/libpq_cust.so:vendor/lib64/libpq_cust.so
+
 # Graphics Extentions
 bin/guiext-server:vendor/bin/guiext-server
 lib/libged.so:vendor/lib/libged.so
@@ -106,6 +111,16 @@ lib64/libgralloc_extra.so:vendor/lib64/libgralloc_extra.so
 lib64/libgui_ext.so:vendor/lib64/libgui_ext.so
 lib64/libion_mtk.so:vendor/lib64/libion_mtk.so
 lib64/libui_ext.so:vendor/lib64/libui_ext.so
+
+# Graphics (Media)
+lib/libbwc.so:vendor/lib/libbwc.so
+lib64/libbwc.so:vendor/lib64/libbwc.so
+lib/libdpframework.so:vendor/lib/libdpframework.so
+lib64/libdpframework.so:vendor/lib64/libdpframework.so
+lib/libion_mtk.so:vendor/lib/libion_mtk.so
+lib64/libion_mtk.so:vendor/lib64/libion_mtk.so
+lib/libm4u.so:vendor/lib/libm4u.so
+lib64/libm4u.so:vendor/lib64/libm4u.so
 
 # Hotword Model Firmware
 etc/firmware/SMicBin_rt5514_mode14.dat:vendor/etc/firmware/SMicBin_rt5514_mode14.dat
