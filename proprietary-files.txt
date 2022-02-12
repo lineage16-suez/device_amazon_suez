@@ -12,6 +12,7 @@ lib/libaudioutils.so:vendor/lib/libaudioutils.so
 lib/libbessound_hd_mtk.so:vendor/lib/libbessound_hd_mtk.so
 lib/libblisrc32.so:vendor/lib/libblisrc32.so
 lib/libcjson.so:vendor/lib/libcjson.so
+lib/libmtk_drvb.so:/vendor/lib/libmtk_drvb.so
 lib/libmtklimiter.so:vendor/lib/libmtklimiter.so
 lib/libmtkshifter.so:vendor/lib/libmtkshifter.so
 lib/libspeech_enh_lib.so:vendor/lib/libspeech_enh_lib.so
