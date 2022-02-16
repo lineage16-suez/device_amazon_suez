@@ -1,0 +1,51 @@
+From b3f5c35f8644c1f339a2331c4a3d3a8db28c72c2 Mon Sep 17 00:00:00 2001
+From: ggow <9898181+ggow@users.noreply.github.com>
+Date: Wed, 16 Feb 2022 14:20:50 +0000
+Subject: [PATCH 1/1] extract_utils: bulk copy vendor files
+
+Change-Id: I3643cae64d92a80416c1b7830bd3c21b531d5498
+---
+ build/tools/extract_utils.sh | 27 +--------------------------
+ 1 file changed, 1 insertion(+), 26 deletions(-)
+
+diff --git a/build/tools/extract_utils.sh b/build/tools/extract_utils.sh
+index 19820ba4..4269d9cf 100644
+--- a/build/tools/extract_utils.sh
++++ b/build/tools/extract_utils.sh
+@@ -266,32 +266,7 @@ function write_product_copy_files() {
+     fi
+ 
+     printf '%s\n' "PRODUCT_COPY_FILES += \\" >> "$PRODUCTMK"
+-    for (( i=1; i<COUNT+1; i++ )); do
+-        FILE="${PRODUCT_COPY_FILES_LIST[$i-1]}"
+-        LINEEND=" \\"
+-        if [ "$i" -eq "$COUNT" ]; then
+-            LINEEND=""
+-        fi
+-
+-        TARGET=$(target_file "$FILE")
+-        if [ "$TREBLE_COMPAT" == "true" ] || [ "$TREBLE_COMPAT" == "1" ]; then
+-            if prefix_match_file "vendor/" $TARGET ; then
+-                local OUTTARGET=$(truncate_file $TARGET)
+-                printf '    %s/proprietary/%s:$(TARGET_COPY_OUT_VENDOR)/%s%s\n' \
+-                    "$OUTDIR" "$TARGET" "$OUTTARGET" "$LINEEND" >> "$PRODUCTMK"
+-            elif prefix_match_file "product/" $TARGET ; then
+-                local OUTTARGET=$(truncate_file $TARGET)
+-                printf '    %s/proprietary/%s:$(TARGET_COPY_OUT_PRODUCT)/%s%s\n' \
+-                    "$OUTDIR" "$TARGET" "$OUTTARGET" "$LINEEND" >> "$PRODUCTMK"
+-            else
+-                printf '    %s/proprietary/%s:system/%s%s\n' \
+-                    "$OUTDIR" "$TARGET" "$TARGET" "$LINEEND" >> "$PRODUCTMK"
+-            fi
+-        else
+-            printf '    %s/proprietary/%s:system/%s%s\n' \
+-                "$OUTDIR" "$TARGET" "$TARGET" "$LINEEND" >> "$PRODUCTMK"
+-        fi
+-    done
++    printf '\t$(call find-copy-subdir-files,*,$(VENDOR)/proprietary,system)\n' >> "$PRODUCTMK"
+     return 0
+ }
+ 
+-- 
+2.25.1
+
