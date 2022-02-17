@@ -85,7 +85,6 @@ vendor/lib64/egl/libGLESv2_POWERVR_ROGUE.so
 vendor/lib64/hw/gralloc.mt8173.img.so
 vendor/lib64/libglslcompiler.so
 vendor/lib64/libIMGegl.so
-vendor/lib64/liboemcrypto.so
 vendor/lib64/libpvrANDROID_WSEGL.so
 vendor/lib64/libPVRScopeServices.so
 vendor/lib64/libsrv_init.so
@@ -285,19 +284,8 @@ lib64/libdrmmtkutil.so:vendor/lib64/libdrmmtkutil.so
 lib64/libdrmmtkwhitelist.so:vendor/lib64/libdrmmtkwhitelist.so
 lib64/libtz_uree.so:vendor/lib64/libtz_uree.so
 lib64/liburee_meta_drmkeyinstall_v2.so:vendor/lib64/liburee_meta_drmkeyinstall_v2.so
-vendor/lib/drm/libdrmwvmplugin.so
-vendor/lib/libwvdrm_L1.so
-vendor/lib/libwvm.so
 vendor/lib/lib_uree_mtk_video_secure_al.so
-vendor/lib/libWVStreamControlAPI_L1.so
-vendor/lib/mediadrm/libdrmclearkeyplugin.so
-vendor/lib/mediadrm/libmockdrmcryptoplugin.so
-vendor/lib/mediadrm/libplayreadydrmplugin.so
-vendor/lib/mediadrm/libwvdrmengine.so
 vendor/lib64/lib_uree_mtk_video_secure_al.so
-vendor/lib64/mediadrm/libdrmclearkeyplugin.so
-vendor/lib64/mediadrm/libmockdrmcryptoplugin.so
-vendor/lib/liboemcrypto.so
 lib/hw/keystore.mt8173.so:vendor/lib/hw/keystore.mt8173.so
 lib64/hw/keystore.mt8173.so:vendor/lib64/hw/keystore.mt8173.so
 lib/libplayready.so:vendor/lib/libplayready.so
