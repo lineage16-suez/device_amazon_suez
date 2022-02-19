@@ -1,0 +1,139 @@
+From 4dad78d37d8361dc2d717469ccc0d2c51c41d263 Mon Sep 17 00:00:00 2001
+From: steadfasterX <steadfasterX@gmail.com>
+Date: Sat, 19 Feb 2022 21:54:22 +0000
+Subject: [PATCH 1/1] micro-g: rebased signature spoofing enablement
+
+Change-Id: Ia7dd7bd03014abb739697aca6d4113c7424baaa7
+---
+ res/values/strings.xml                        |  5 ++
+ res/xml/development_settings.xml              |  6 ++
+ .../DevelopmentSettingsDashboardFragment.java |  1 +
+ .../SpoofSignaturePreferenceController.java   | 70 +++++++++++++++++++
+ 4 files changed, 82 insertions(+)
+ create mode 100644 src/com/android/settings/development/SpoofSignaturePreferenceController.java
+
+diff --git a/res/values/strings.xml b/res/values/strings.xml
+index 39a40e776e..79af553a70 100644
+--- a/res/values/strings.xml
++++ b/res/values/strings.xml
+@@ -10088,6 +10088,11 @@
+     <!-- Title for Connected device shortcut [CHAR LIMIT=30] -->
+     <string name="devices_title">Devices</string>
+ 
++    <!-- Allow fake signature checkbox in developer settings -->
++    <string name="allow_signature_fake">Allow signature spoofing</string>
++    <string name="allow_signature_fake_summary">Allow apps to bypass security systems by pretending to be a different app</string>
++    <string name="allow_signature_fake_warning">Allowing apps to bypass security systems can lead to serious security and privacy problems! Check that only benign apps use the corresponding permission when this is active.</string>
++
+     <!-- Bluetooth message permission alert for notification content [CHAR LIMIT=none] -->
+     <string name="bluetooth_message_access_notification_content">A device wants to access your messages. Tap for details.</string>
+     <!-- Bluetooth message permission alert for dialog title [CHAR LIMIT=none] -->
+diff --git a/res/xml/development_settings.xml b/res/xml/development_settings.xml
+index 8a8d2d4def..1ab816b570 100644
+--- a/res/xml/development_settings.xml
++++ b/res/xml/development_settings.xml
+@@ -569,6 +569,12 @@
+             android:key="reset_shortcut_manager_throttling"
+             android:title="@string/reset_shortcut_manager_throttling" />
+ 
++        <SwitchPreference
++            android:key="allow_signature_fake"
++            android:title="@string/allow_signature_fake"
++            android:summary="@string/allow_signature_fake_summary"
++            android:defaultValue="false" />
++
+         <lineageos.preference.LineageSecureSettingSwitchPreference
+             android:key="kill_app_longpress_back"
+             android:title="@string/kill_app_longpress_back"
+diff --git a/src/com/android/settings/development/DevelopmentSettingsDashboardFragment.java b/src/com/android/settings/development/DevelopmentSettingsDashboardFragment.java
+index f2011bc612..0a6bb57367 100644
+--- a/src/com/android/settings/development/DevelopmentSettingsDashboardFragment.java
++++ b/src/com/android/settings/development/DevelopmentSettingsDashboardFragment.java
+@@ -497,6 +497,7 @@ public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFra
+         controllers.add(new DefaultLaunchPreferenceController(context, "density"));
+         controllers.add(new DefaultLaunchPreferenceController(context, "background_check"));
+         controllers.add(new DefaultLaunchPreferenceController(context, "inactive_apps"));
++        controllers.add(new SpoofSignaturePreferenceController(context));
+         return controllers;
+     }
+ 
+diff --git a/src/com/android/settings/development/SpoofSignaturePreferenceController.java b/src/com/android/settings/development/SpoofSignaturePreferenceController.java
+new file mode 100644
+index 0000000000..c27f3c2cec
+--- /dev/null
++++ b/src/com/android/settings/development/SpoofSignaturePreferenceController.java
+@@ -0,0 +1,70 @@
++/*
++ * Copyright (C) 2019 The LineageOS Project
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++package com.android.settings.development;
++
++import android.content.Context;
++import android.provider.Settings;
++import android.support.annotation.VisibleForTesting;
++import android.support.v14.preference.SwitchPreference;
++import android.support.v7.preference.Preference;
++
++import com.android.settings.core.PreferenceControllerMixin;
++import com.android.settingslib.development.DeveloperOptionsPreferenceController;
++
++public class SpoofSignaturePreferenceController extends DeveloperOptionsPreferenceController
++        implements Preference.OnPreferenceChangeListener, PreferenceControllerMixin {
++
++    private static final String ALLOW_SIGNATURE_FAKE_KEY = "allow_signature_fake";
++
++    @VisibleForTesting
++    static final int SETTING_VALUE_ON = 1;
++    @VisibleForTesting
++    static final int SETTING_VALUE_OFF = 0;
++
++    public SpoofSignaturePreferenceController(Context context) {
++        super(context);
++    }
++
++    @Override
++    public String getPreferenceKey() {
++        return ALLOW_SIGNATURE_FAKE_KEY;
++    }
++
++    @Override
++    public boolean onPreferenceChange(Preference preference, Object newValue) {
++        final boolean isEnabled = (Boolean) newValue;
++        Settings.Secure.putInt(mContext.getContentResolver(),
++                Settings.Secure.ALLOW_SIGNATURE_FAKE,
++                isEnabled ? SETTING_VALUE_ON : SETTING_VALUE_OFF);
++        return true;
++    }
++
++    @Override
++    public void updateState(Preference preference) {
++        final int spoofingMode = Settings.Secure.getInt(mContext.getContentResolver(),
++                Settings.Secure.ALLOW_SIGNATURE_FAKE, SETTING_VALUE_OFF);
++        ((SwitchPreference) mPreference).setChecked(spoofingMode != SETTING_VALUE_OFF);
++    }
++
++    @Override
++    protected void onDeveloperOptionsSwitchDisabled() {
++        super.onDeveloperOptionsSwitchDisabled();
++        Settings.Secure.putInt(mContext.getContentResolver(),
++                Settings.Secure.ALLOW_SIGNATURE_FAKE, SETTING_VALUE_OFF);
++        ((SwitchPreference) mPreference).setChecked(false);
++    }
++}
+\ No newline at end of file
+-- 
+2.25.1
+
