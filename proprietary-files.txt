@@ -214,17 +214,17 @@ lib/libJpgDecPipe.so:vendor/lib/libJpgDecPipe.so
 lib/libmhalImageCodec.so:vendor/lib/libmhalImageCodec.so
 lib/libmtkjpeg.so:vendor/lib/libmtkjpeg.so
 lib/libMtkOmxAIVPlayer.so:vendor/lib/libMtkOmxAIVPlayer.so
-lib/libMtkOmxCore.so:vendor/lib/libMtkOmxCore.so|fd999450185f4535657e94181daf5d20ed734bef
+lib/libMtkOmxCore.so:vendor/lib/libMtkOmxCore.so
 lib/libMtkOmxMp3Dec.so:vendor/lib/libMtkOmxMp3Dec.so
-lib/libMtkOmxVdecEx.so:vendor/lib/libMtkOmxVdecEx.so|c9839c9ea7620e131bb20e6fe91b2241ee3d6cb3
-lib/libMtkOmxVenc.so:vendor/lib/libMtkOmxVenc.so|2d551d7575398320a3a6814576ad96386c101e09
+lib/libMtkOmxVdecEx.so:vendor/lib/libMtkOmxVdecEx.so
+lib/libMtkOmxVenc.so:vendor/lib/libMtkOmxVenc.so
 lib/libstagefrighthw.so:vendor/lib/libstagefrighthw.so
 lib/libSwJpgCodec.so:vendor/lib/libSwJpgCodec.so
 lib/libvcodecdrv.so:vendor/lib/libvcodecdrv.so
 lib64/libJpgDecPipe.so:vendor/lib64/libJpgDecPipe.so
 lib64/libmhalImageCodec.so:vendor/lib64/libmhalImageCodec.so
 lib64/libmtkjpeg.so:vendor/lib64/libmtkjpeg.so
-lib64/libMtkOmxCore.so:vendor/lib64/libMtkOmxCore.so|8815e46772ddd1d517fef2c9b98b03f89ff30552
+lib64/libMtkOmxCore.so:vendor/lib64/libMtkOmxCore.so
 lib64/libstagefrighthw.so:vendor/lib64/libstagefrighthw.so
 lib64/libSwJpgCodec.so:vendor/lib64/libSwJpgCodec.so
 
