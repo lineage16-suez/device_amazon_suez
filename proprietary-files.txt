@@ -165,6 +165,7 @@ usr/keylayout/Vendor_20a0_Product_0004.kl:vendor/usr/keylayout/Vendor_20a0_Produ
 usr/keylayout/Vendor_2836_Product_0001.kl:vendor/usr/keylayout/Vendor_2836_Product_0001.kl
 
 # Lights HAL
+lib/hw/lights.mt8173.so:vendor/lib/hw/lights.mt8173.so
 lib64/hw/lights.mt8173.so:vendor/lib64/hw/lights.mt8173.so
 
 # Media
