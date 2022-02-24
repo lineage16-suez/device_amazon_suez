@@ -26,7 +26,7 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl">
+    <!--hal format="hidl">
         <name>android.hardware.camera.provider</name>
         <transport arch="32">passthrough</transport>
         <version>2.4</version>
@@ -34,7 +34,7 @@
             <name>ICameraProvider</name>
             <instance>legacy/0</instance>
         </interface>
-    </hal>
+    </hal-->
     <hal format="hidl">
         <name>android.hardware.cas</name>
         <transport>hwbinder</transport>
