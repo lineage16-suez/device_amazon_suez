@@ -63,6 +63,37 @@ lib64/libstlport.so:vendor/lib64/libstlport.so
 
 # Camera
 
+# Crypto
+bin/amzn_dha_hmac:vendor/bin/amzn_dha_hmac
+bin/amzn_dha_tool:vendor/bin/amzn_dha_tool
+bin/amzn_drmprov_check:vendor/bin/amzn_drmprov_check
+bin/amzn_drmprov_tool:vendor/bin/amzn_drmprov_tool
+bin/kisd:vendor/bin/kisd
+bin/rpmb_svc:vendor/bin/rpmb_svc
+lib/drm/libdrmmtkplugin.so:vendor/lib/drm/libdrmmtkplugin.so
+lib/hw/amzn_dha.mt8173.so:vendor/lib/hw/amzn_dha.mt8173.so
+lib/hw/amzn_drmprov.mt8173.so:vendor/lib/hw/amzn_drmprov.mt8173.so
+lib/hw/keystore.mt8173.so:vendor/lib/hw/keystore.mt8173.so
+lib/lib_uree_mtk_crypto.so:vendor/lib/lib_uree_mtk_crypto.so
+lib/lib_uree_mtk_modular_drm.so:vendor/lib/lib_uree_mtk_modular_drm.so
+lib/libdrmmtkutil.so:vendor/lib/libdrmmtkutil.so
+lib/libdrmmtkwhitelist.so:vendor/lib/libdrmmtkwhitelist.so
+lib/libplayready.so:vendor/lib/libplayready.so
+lib/libtz_uree.so:vendor/lib/libtz_uree.so
+lib/liburee_meta_drmkeyinstall_v2.so:vendor/lib/liburee_meta_drmkeyinstall_v2.so
+lib64/drm/libdrmmtkplugin.so:vendor/lib64/drm/libdrmmtkplugin.so
+lib64/hw/amzn_dha.mt8173.so:vendor/lib64/hw/amzn_dha.mt8173.so
+lib64/hw/amzn_drmprov.mt8173.so:vendor/lib64/hw/amzn_drmprov.mt8173.so
+lib64/hw/keystore.mt8173.so:vendor/lib64/hw/keystore.mt8173.so
+lib64/lib_uree_mtk_crypto.so:vendor/lib64/lib_uree_mtk_crypto.so
+lib64/lib_uree_mtk_modular_drm.so:vendor/lib64/lib_uree_mtk_modular_drm.so
+lib64/libdrmmtkutil.so:vendor/lib64/libdrmmtkutil.so
+lib64/libdrmmtkwhitelist.so:vendor/lib64/libdrmmtkwhitelist.so
+lib64/libtz_uree.so:vendor/lib64/libtz_uree.so
+lib64/liburee_meta_drmkeyinstall_v2.so:vendor/lib64/liburee_meta_drmkeyinstall_v2.so
+vendor/lib/lib_uree_mtk_video_secure_al.so
+vendor/lib64/lib_uree_mtk_video_secure_al.so
+
 # DRM
 vendor/bin/hw/android.hardware.drm@1.0-service.widevine|d2c5e233ad22903a1ea3379c9d325d0f2877d459
 vendor/etc/init/android.hardware.drm@1.0-service.widevine.rc|51a3168a0dbc064d78ee11ca83614c0cd2e6daa5
@@ -228,9 +259,6 @@ lib64/libMtkOmxCore.so:vendor/lib64/libMtkOmxCore.so
 lib64/libstagefrighthw.so:vendor/lib64/libstagefrighthw.so
 lib64/libSwJpgCodec.so:vendor/lib64/libSwJpgCodec.so
 
-
-
-
 # Perfboost
 lib/hw/perfboost.default.so:vendor/lib/hw/perfboost.default.so
 lib/hw/perfboost.mt8173.so:vendor/lib/hw/perfboost.mt8173.so
@@ -267,37 +295,6 @@ lib64/hw/thermal.mt8173.so:vendor/lib64/hw/thermal.mt8173.so
 # Userspace Serial Ports
 bin/gsm0710muxd:vendor/bin/gsm0710muxd
 bin/gsm0710muxdmd2:vendor/bin/gsm0710muxdmd2
-
-# Widevine DRM
-bin/amzn_dha_hmac:vendor/bin/amzn_dha_hmac
-bin/amzn_dha_tool:vendor/bin/amzn_dha_tool
-bin/amzn_drmprov_check:vendor/bin/amzn_drmprov_check
-bin/amzn_drmprov_tool:vendor/bin/amzn_drmprov_tool
-bin/kisd:vendor/bin/kisd
-bin/rpmb_svc:vendor/bin/rpmb_svc
-lib/drm/libdrmmtkplugin.so:vendor/lib/drm/libdrmmtkplugin.so
-lib/hw/amzn_dha.mt8173.so:vendor/lib/hw/amzn_dha.mt8173.so
-lib/hw/amzn_drmprov.mt8173.so:vendor/lib/hw/amzn_drmprov.mt8173.so
-lib/lib_uree_mtk_crypto.so:vendor/lib/lib_uree_mtk_crypto.so
-lib/lib_uree_mtk_modular_drm.so:vendor/lib/lib_uree_mtk_modular_drm.so
-lib/libdrmmtkutil.so:vendor/lib/libdrmmtkutil.so
-lib/libdrmmtkwhitelist.so:vendor/lib/libdrmmtkwhitelist.so
-lib/libtz_uree.so:vendor/lib/libtz_uree.so
-lib/liburee_meta_drmkeyinstall_v2.so:vendor/lib/liburee_meta_drmkeyinstall_v2.so
-lib64/drm/libdrmmtkplugin.so:vendor/lib64/drm/libdrmmtkplugin.so
-lib64/hw/amzn_dha.mt8173.so:vendor/lib64/hw/amzn_dha.mt8173.so
-lib64/hw/amzn_drmprov.mt8173.so:vendor/lib64/hw/amzn_drmprov.mt8173.so
-lib64/lib_uree_mtk_crypto.so:vendor/lib64/lib_uree_mtk_crypto.so
-lib64/lib_uree_mtk_modular_drm.so:vendor/lib64/lib_uree_mtk_modular_drm.so
-lib64/libdrmmtkutil.so:vendor/lib64/libdrmmtkutil.so
-lib64/libdrmmtkwhitelist.so:vendor/lib64/libdrmmtkwhitelist.so
-lib64/libtz_uree.so:vendor/lib64/libtz_uree.so
-lib64/liburee_meta_drmkeyinstall_v2.so:vendor/lib64/liburee_meta_drmkeyinstall_v2.so
-vendor/lib/lib_uree_mtk_video_secure_al.so
-vendor/lib64/lib_uree_mtk_video_secure_al.so
-lib/hw/keystore.mt8173.so:vendor/lib/hw/keystore.mt8173.so
-lib64/hw/keystore.mt8173.so:vendor/lib64/hw/keystore.mt8173.so
-lib/libplayready.so:vendor/lib/libplayready.so
 
 # Wifi
 bin/6620_launcher:vendor/bin/6620_launcher
