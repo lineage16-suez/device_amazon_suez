@@ -78,7 +78,6 @@ lib/lib_uree_mtk_crypto.so:vendor/lib/lib_uree_mtk_crypto.so
 lib/lib_uree_mtk_modular_drm.so:vendor/lib/lib_uree_mtk_modular_drm.so
 lib/libdrmmtkutil.so:vendor/lib/libdrmmtkutil.so
 lib/libdrmmtkwhitelist.so:vendor/lib/libdrmmtkwhitelist.so
-lib/libplayready.so:vendor/lib/libplayready.so
 lib/libtz_uree.so:vendor/lib/libtz_uree.so
 lib/liburee_meta_drmkeyinstall_v2.so:vendor/lib/liburee_meta_drmkeyinstall_v2.so
 lib64/drm/libdrmmtkplugin.so:vendor/lib64/drm/libdrmmtkplugin.so
