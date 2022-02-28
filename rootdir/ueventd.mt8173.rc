@@ -114,6 +114,8 @@
 # RPMB
 /dev/block/mmcblk0rpmb    0660   root       system
 
+# VCodec
+/dev/Vcodec               0666   media      system
 
 # sysfs properties
 
