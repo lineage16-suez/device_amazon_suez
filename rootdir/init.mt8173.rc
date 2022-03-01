@@ -168,24 +168,18 @@ on post-fs-data
     # watch dog kicker
     write /proc/wdk "0 20 30"
 
-    # set ptmx group to non-root
-    chown root radio /dev/ptmx
-
     # RTC
     mkdir /data/misc/rtc 0770 system system
 
     # M4U
-    #insmod /system/lib/modules/m4u.ko
-    exec /system/bin/mknod /dev/M4U_device c 188 0
-    chmod 0444 /dev/m4u
-    chown system media /dev/M4U_device
+    exec /system/bin/mknod /dev/m4u c 188 0
+
+    # GED
+    chmod 0666 /proc/ged
+    chown root system /proc/ged 
 
     # set mlock limit to infinate (for m4u operation)
     setrlimit 8 -1 -1
-
-    # CMDQ
-    chmod 0640 /dev/mtk_cmdq
-    chown system system /dev/mtk_cmdq
 
     # OFFLOAD SERVICE
     chmod 0640 /dev/offloadservice
@@ -386,19 +380,6 @@ on post-fs-data
 
     exec /system/bin/setprop persist.sys.strictmode.disable 1
 
-    # Display
-    chmod 0660 /dev/graphics/fb0
-    chown system graphics /dev/graphics/fb0
-
-    chmod 0660 /dev/mtk_disp_mgr
-    chown system graphics /dev/mtk_disp_mgr
-
-    chmod 0660 /dev/mtkfb_vsync
-    chown system graphics /dev/mtkfb_vsync
-
-    chmod 0766 /dev/sw_sync
-    chown system graphics /dev/sw_sync
-
     # for ppp options file
     mkdir /data/misc/ppp 0770 bluetooth net_bt
 
@@ -411,8 +392,6 @@ on post-fs-data
 
     # device info /proc interface
     exec /system/bin/mknod /dev/devmap c 196 0;
-    chmod 0440 /dev/devmap
-    chown root system /dev/devmap
 
     # bluetooth
     mkdir /data/@btmtk 0770 bluetooth net_bt
@@ -442,27 +421,6 @@ on post-fs-data
 
     # DISP
     chmod 0444 /dev/mtk_disp
-
-    # Camera
-    chmod 0660 /dev/camera-sysram
-    chmod 0660 /dev/camera-isp
-    chmod 0660 /dev/camera-fdvt
-    chmod 0660 /dev/camera-pipemgr
-    chmod 0660 /dev/kd_camera_hw
-    chmod 0660 /dev/kd_camera_flashlight
-    chmod 0660 /dev/kd_camera_hw_bus2
-    chmod 0660 /dev/FM50AF
-    chmod 0660 /dev/CAM_CAL_DRV
-
-    chown system camera /dev/camera-sysram
-    chown system camera /dev/camera-isp
-    chown system camera /dev/camera-fdvt
-    chown system camera /dev/camera-pipemgr
-    chown system camera /dev/kd_camera_hw
-    chown system camera /dev/kd_camera_flashlight
-    chown system camera /dev/kd_camera_hw_bus2
-    chown system camera /dev/FM50AF
-    chown system camera /dev/CAM_CAL_DRV
 
     # MATV
     chmod 0660 /dev/MATV
