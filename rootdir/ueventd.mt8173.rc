@@ -117,6 +117,9 @@
 # VCodec
 /dev/Vcodec               0666   media      system
 
+# SMI
+/dev/MTK_SMI              0666   media      media
+
 # sysfs properties
 
 /sys/devices/virtual/thermal/thermal_zone* mode 0660  system system
