@@ -301,7 +301,6 @@ bin/6620_wmt_concurrency:vendor/bin/6620_wmt_concurrency
 bin/6620_wmt_lpbk:vendor/bin/6620_wmt_lpbk
 bin/wifitesttool:vendor/bin/wifitesttool
 bin/wmt_loader:vendor/bin/wmt_loader
-bin/wpa_supplicant:vendor/bin/wpa_supplicant
 etc/firmware/mt6630_ant_m1.cfg:vendor/etc/firmware/mt6630_ant_m1.cfg
 etc/firmware/mt6630_patch_e1_hdr.bin:vendor/etc/firmware/mt6630_patch_e1_hdr.bin
 etc/firmware/mt6630_patch_e2_hdr.bin:vendor/etc/firmware/mt6630_patch_e2_hdr.bin
