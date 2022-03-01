@@ -476,11 +476,6 @@ on post-fs-data
     chmod 0660 /dev/mt-mdp
     chown system media /dev/mt-mdp
 
-    # SMI
-    chmod 0660 /dev/MTK_SMI
-    chown media media /dev/MTK_SMI
-
-
     # change partition permission
     chmod 0640 /mtd@sec_ro
     chown root system /mtd@sec_ro
