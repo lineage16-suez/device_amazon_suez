@@ -93,7 +93,7 @@
 /dev/mali                 0666   system     graphics
 
 # Change ION driver permission
-/dev/ion                  0666   system     graphics
+/dev/ion                  0666   root       root
 
 #touch
 /dev/touch                0660   root       system
@@ -104,7 +104,7 @@
 /dev/kick_powerkey        0600   system     system
 
 #MTK In-House TEE
-/dev/trustzone            0660   system       drmrpc
+/dev/trustzone            0660   system     drmrpc
 
 # Trusty driver
 /dev/trusty-ipc-dev0      0660   system     keystore
@@ -120,8 +120,44 @@
 # SMI
 /dev/MTK_SMI              0666   media      media
 
-# sysfs properties
+# device info /proc interface
+/dev/devmap               0444   root       media
 
+# BT SCO CVSD, for MT6572 and MT6582 CVSD codec on AP
+/dev/ebc                  0660   media      media
+
+# Graphics
+/dev/graphics/fb0         0660   system     graphics
+/dev/mtk_disp_mgr         0660   system     graphics
+/dev/mtkfb_vsync          0660   system     graphics
+/dev/sw_sync              0660   system     graphics
+
+# set ptmx group to non-root
+/dev/ptmx                 0666   root       radio
+
+# CMDQ
+/dev/mtk_cmdq             0640   system     system
+
+# M4U
+/dev/m4u                  0444   system     media
+
+# Camera
+/dev/GAF001AF             0660   system     camera
+/dev/AD5820AF             0660   system     camera
+/dev/DW9714AF             0660   system     camera
+/dev/BU64745GWZAF         0660   system     camera
+/dev/FM50AF               0660   system     camera
+/dev/DW9718AF             0660   system     camera
+/dev/CAM_CAL_DRV          0660   system     camera
+/dev/camera-sysram        0660   system     camera
+/dev/camera-isp           0660   system     camera
+/dev/camera-fdvt          0660   system     camera
+/dev/camera-pipemgr       0660   system     camera
+/dev/kd_camera_hw         0660   system     camera
+/dev/kd_camera_flashlight 0660   system     camera
+/dev/kd_camera_hw_bus2    0660   system     camera
+
+# sysfs properties
 /sys/devices/virtual/thermal/thermal_zone* mode 0660  system system
 /sys/devices/virtual/thermal/thermal_zone* trips 0660  system system
 /sys/devices/virtual/thermal/thermal_zone* policy 0660  system system
