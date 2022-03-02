@@ -30,8 +30,6 @@ lib64/libmtklimiter.so:vendor/lib64/libmtklimiter.so
 lib64/libmtkshifter.so:vendor/lib64/libmtkshifter.so
 lib64/libspeech_enh_lib.so:vendor/lib64/libspeech_enh_lib.so
 lib64/soundfx/libaudiofx.so:vendor/lib64/soundfx/libaudiofx.so
-vendor/etc/audio_effects.conf
-vendor/etc/audio_policy.conf
 vendor/etc/audio-algorithms/AFE.cfg
 vendor/etc/audio-algorithms/coefs_FBF.cfg
 vendor/etc/audio-algorithms/coefs_FilterBank.cfg
