@@ -16,7 +16,6 @@ lib/libmtk_drvb.so:/vendor/lib/libmtk_drvb.so
 lib/libmtklimiter.so:vendor/lib/libmtklimiter.so
 lib/libmtkshifter.so:vendor/lib/libmtkshifter.so
 lib/libspeech_enh_lib.so:vendor/lib/libspeech_enh_lib.so
-lib/soundfx/libaudiofx.so:vendor/lib/soundfx/libaudiofx.so
 lib64/hw/audio.primary.mt8173.so:vendor/lib64/hw/audio.primary.mt8173.so
 lib64/libasp.so:vendor/lib64/libasp.so
 lib64/libaudiocompensationfilter.so:vendor/lib64/libaudiocompensationfilter.so
@@ -29,7 +28,6 @@ lib64/libblisrc32.so:vendor/lib64/libblisrc32.so
 lib64/libmtklimiter.so:vendor/lib64/libmtklimiter.so
 lib64/libmtkshifter.so:vendor/lib64/libmtkshifter.so
 lib64/libspeech_enh_lib.so:vendor/lib64/libspeech_enh_lib.so
-lib64/soundfx/libaudiofx.so:vendor/lib64/soundfx/libaudiofx.so
 vendor/etc/audio-algorithms/AFE.cfg
 vendor/etc/audio-algorithms/coefs_FBF.cfg
 vendor/etc/audio-algorithms/coefs_FilterBank.cfg
@@ -37,7 +35,6 @@ vendor/etc/audio-algorithms/EQ_2048.cfg
 vendor/etc/audio-algorithms/MBCL.cfg
 vendor/etc/dolby/ds1-0028.xml
 vendor/lib/libdlbdapstorage.so
-vendor/lib/soundfx/libswdap.so
 vendor/smartvolume/suez/anlg_dock_headset.csv
 vendor/smartvolume/suez/aux_digital.csv
 vendor/smartvolume/suez/bt_a2dp_headphones.csv
@@ -51,6 +48,26 @@ vendor/smartvolume/suez/dgtl_dock_headeset.csv
 vendor/smartvolume/suez/speaker.csv
 vendor/smartvolume/suez/wired_headphone.csv
 vendor/smartvolume/suez/wired_headset.csv
+
+# Audio Effects
+vendor/etc/audio_effects.conf
+lib/soundfx/libaudiofx.so:vendor/lib/soundfx/libaudiofx.so
+lib/soundfx/libaudiopreprocessing.so:vendor/lib/soundfx/libaudiopreprocessing.so
+lib/soundfx/libbundlewrapper.so:vendor/lib/soundfx/libbundlewrapper.so
+lib/soundfx/libdownmix.so:vendor/lib/soundfx/libdownmix.so
+lib/soundfx/libeffectproxy.so:vendor/lib/soundfx/libeffectproxy.so
+lib/soundfx/libldnhncr.so:vendor/lib/soundfx/libldnhncr.so
+lib/soundfx/libreverbwrapper.so:vendor/lib/soundfx/libreverbwrapper.so
+lib/soundfx/libvisualizer.so:vendor/lib/soundfx/libvisualizer.so
+lib64/soundfx/libaudiofx.so:vendor/lib64/soundfx/libaudiofx.so
+lib64/soundfx/libaudiopreprocessing.so:vendor/lib64/soundfx/libaudiopreprocessing.so
+lib64/soundfx/libbundlewrapper.so:vendor/lib64/soundfx/libbundlewrapper.so
+lib64/soundfx/libdownmix.so:vendor/lib64/soundfx/libdownmix.so
+lib64/soundfx/libeffectproxy.so:vendor/lib64/soundfx/libeffectproxy.so
+lib64/soundfx/libldnhncr.so:vendor/lib64/soundfx/libldnhncr.so
+lib64/soundfx/libreverbwrapper.so:vendor/lib64/soundfx/libreverbwrapper.so
+lib64/soundfx/libvisualizer.so:vendor/lib64/soundfx/libvisualizer.so
+vendor/lib/soundfx/libswdap.so
 
 # Bluetooth
 bin/autobt:vendor/bin/autobt
