@@ -36,25 +36,26 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_PACKAGES += \
-	audio.a2dp.default \
-    audio.r_submix.default \
+    audio.r_submix.mt8163 \
     audio.usb.default \
+    audio.a2dp.default \
     audio_policy.stub \
-    libalsautils \
+    audio.r_submix.default \
     libaudio-resampler \
+    libaudioroute \
     libtinyalsa \
+    libalsautils \
     libtinycompress \
     libtinyxml \
-    libaudioroute \
-    libaudiospdif \
-    libeffects
+    tinymix \
+    tinypcminfo \
+    tinycap \
+    tinyplay
 
 PRODUCT_COPY_FILES += \
     $(DEVICE)/audio/mixer_paths.xml:system/etc/mixer_paths.xml \
     $(DEVICE)/audio/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf \
-    $(DEVICE)/audio/audio_em.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_em.xml \
-    $(DEVICE)/audio/audio_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy.conf \
-    $(DEVICE)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
+    $(DEVICE)/audio/audio_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy.conf
 
 PRODUCT_COPY_FILES += \
     $(TOPDIR)frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration.xml \
