@@ -147,3 +147,5 @@ mtklog_path = internal_sd
 
 ro.hardware.egl=POWERVR_ROGUE
 ro.board.platform=mt8173
+
+ro.sys.sdcardfs=true
