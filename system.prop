@@ -149,3 +149,7 @@ ro.hardware.egl=POWERVR_ROGUE
 ro.board.platform=mt8173
 
 ro.sys.sdcardfs=true
+
+# Telephony
+ro.radio.noril=1
+ro.carrier=wifi-only
