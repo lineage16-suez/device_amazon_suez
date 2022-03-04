@@ -67,41 +67,60 @@
          Software implementation will be used if config_hardware_auto_brightness_available is not set -->
     <bool name="config_automatic_brightness_available">true</bool>
 
-     <integer-array name="config_autoBrightnessLevels">
-        <item>11</item>
-        <item>22</item>
-        <item>43</item>
-        <item>62</item>
-        <item>94</item>
-        <item>151</item>
-        <item>242</item>
-        <item>378</item>
-        <item>601</item>
-        <item>965</item>
-        <item>1543</item>
-        <item>2467</item>
-        <item>3980</item>
-        <item>6372</item>
-        <item>10186</item>
-        <item>12000</item>
+     <!-- Array of light sensor LUX values to define our levels for auto backlight brightness support.
+         The N entries of this array define N  1 zones as follows:
+         Zone 0:        0 <= LUX < array[0]
+         Zone 1:        array[0] <= LUX < array[1]
+         ...
+         Zone N:        array[N - 1] <= LUX < array[N]
+         Zone N + 1     array[N] <= LUX < infinity
+         Must be overridden in platform specific overlays -->
+    <integer-array name="config_autoBrightnessLevels">
+        <item>6</item>
+        <item>8</item>
+        <item>10</item>
+        <item>15</item>
+        <item>30</item>
+        <item>50</item>
+        <item>100</item>
+        <item>230</item>
+        <item>400</item>
+        <item>500</item>
+        <item>650</item>
+        <item>825</item>
+        <item>1000</item>
+        <item>2500</item>
+        <item>5000</item>
+        <item>6250</item>
+        <item>8400</item>
+        <item>9500</item>
+        <item>10240</item>
     </integer-array>
 
+    <!-- Array of output values for LCD backlight corresponding to the LUX values
+         in the config_autoBrightnessLevels array.  This array should have size one greater
+         than the size of the config_autoBrightnessLevels array.
+         This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>10</item>
-        <item>35</item>
-        <item>59</item>
-        <item>84</item>
-        <item>108</item>
-        <item>132</item>
-        <item>157</item>
-        <item>181</item>
-        <item>206</item>
-        <item>230</item>
-        <item>255</item>
-        <item>255</item>
-        <item>255</item>
-        <item>255</item>
-        <item>255</item>
-        <item>255</item>
+        <item>12</item>     <!-- 0-5 -->
+        <item>16</item>     <!-- 6-7 -->
+        <item>18</item>     <!-- 8-9 -->
+        <item>20</item>     <!-- 10-14 -->
+        <item>25</item>     <!-- 15-29 -->
+        <item>28</item>     <!-- 30-49 -->
+        <item>34</item>     <!-- 50-99 -->
+        <item>37</item>     <!-- 100-229 -->
+        <item>41</item>     <!-- 239-399 -->
+        <item>48</item>     <!-- 400-499 -->
+        <item>57</item>     <!-- 500-649 -->
+        <item>75</item>     <!-- 650-824 -->
+        <item>81</item>     <!-- 825-999 -->
+        <item>90</item>     <!-- 1000-2499 -->
+        <item>100</item>    <!-- 2500-4999 -->
+        <item>125</item>    <!-- 5000-6249 -->
+        <item>165</item>    <!-- 6250-7499 -->
+        <item>200</item>    <!-- 7500-9999 -->
+        <item>225</item>    <!-- 10000-11999 -->
+        <item>255</item>    <!-- 12000-19417 (max value of light sensor) -->
     </integer-array>
 </resources>
