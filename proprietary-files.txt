@@ -195,7 +195,6 @@ usr/keylayout/lightning-device.kl
 usr/keylayout/Vendor_0171_Product_040b.kl
 usr/keylayout/Vendor_0171_Product_040c.kl
 usr/keylayout/Vendor_0171_Product_0413.kl
-usr/keylayout/Vendor_0171_Product_0419.kl
 usr/keylayout/Vendor_045e_Product_0291.kl
 usr/keylayout/Vendor_046d_Product_c21e.kl
 usr/keylayout/Vendor_057e_Product_0306.kl
