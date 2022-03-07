@@ -157,7 +157,7 @@
 /dev/kd_camera_flashlight 0660   system     camera
 /dev/kd_camera_hw_bus2    0660   system     camera
 
-# sysfs properties
+# Thermal
 /sys/devices/virtual/thermal/thermal_zone* mode 0660  system system
 /sys/devices/virtual/thermal/thermal_zone* trips 0660  system system
 /sys/devices/virtual/thermal/thermal_zone* policy 0660  system system
@@ -165,7 +165,6 @@
 /sys/devices/virtual/thermal/thermal_zone* cdevs 0660  system system
 /sys/devices/virtual/thermal/cooling_device* cur_state 0660 system system
 /sys/devices/virtual/thermal/cooling_device* levels 0660 system system
-
 /sys/devices/virtual/thermal/thermal_zone* trip_point_0_temp 0660 system system
 /sys/devices/virtual/thermal/thermal_zone* trip_point_0_hyst 0660 system system
 /sys/devices/virtual/thermal/thermal_zone* trip_point_1_temp 0660 system system
