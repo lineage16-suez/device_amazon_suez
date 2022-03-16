@@ -1,0 +1,35 @@
+diff --git a/data/etc/platform.xml b/data/etc/platform.xml
+index ab90e1b702d..ce346de3521 100644
+--- a/data/etc/platform.xml
++++ b/data/etc/platform.xml
+@@ -61,7 +61,9 @@
+     </permission>
+ 
+     <permission name="android.permission.WRITE_MEDIA_STORAGE" >
+-        <group gid="media_rw" />
++        <group gid="sdcard_r" />
++        <group gid="sdcard_rw" />
++        <group gid="media_rw" />
+     </permission>
+ 
+     <permission name="android.permission.ACCESS_MTP" >
+@@ -126,8 +128,17 @@
+          is negligible (one tag with the permission) compared to
+          the fragility as one can remove a built-in permission which
+          no longer needs to be mapped to gids and break grant propagation. -->
+-    <permission name="android.permission.READ_EXTERNAL_STORAGE" />
+-    <permission name="android.permission.WRITE_EXTERNAL_STORAGE" />
++    <permission name="android.permission.READ_EXTERNAL_STORAGE" >
++        <group gid="sdcard_r" />
++        <group gid="sdcard_rw" />
++        <group gid="media_rw" />
++    </permission>
++
++    <permission name="android.permission.WRITE_EXTERNAL_STORAGE" >
++        <group gid="sdcard_r" />
++        <group gid="sdcard_rw" />
++        <group gid="media_rw" />
++    </permission>
+ 
+     <!-- ================================================================== -->
+     <!-- ================================================================== -->
