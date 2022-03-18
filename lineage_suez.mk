@@ -17,17 +17,22 @@
 # Inherit some common Lineage stuff.
 $(call inherit-product-if-exists, vendor/lineage/config/common_full_tablet_wifionly.mk)
 
-# Inherit from suez device
-$(call inherit-product, device/amazon/suez/full_suez.mk)
+# Inherit from the common Open Source product configuration
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_l_mr1.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
+
+# Inherit from hardware-specific part of the product configuration
+$(call inherit-product, device/amazon/suez/device.mk)
 
 # Product Charateristics
 PRODUCT_CHARACTERISTICS := tablet
 
-# Set those variables here to overwrite the inherited values.
-BOARD_VENDOR := amzn
-PRODUCT_BRAND := google
-PRODUCT_DEVICE := suez
+# Device identifier. This must come after all inclusions.
 PRODUCT_NAME := lineage_suez
-PRODUCT_MANUFACTURER := amzn
+PRODUCT_DEVICE := suez
+PRODUCT_BRAND := google
 PRODUCT_MODEL := Fire
-TARGET_VENDOR := amzn
+PRODUCT_MANUFACTURER := Google
+
+PRODUCT_GMS_CLIENTID_BASE := android-google
