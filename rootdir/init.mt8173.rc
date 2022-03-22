@@ -544,6 +544,8 @@ on post-fs-data
     start rpmb_svc
 
 on boot
+    exec /system/bin/sh /fix-symlinks.sh
+    
     # Adjust minimum free memory space (default is 2.5M)
     write /proc/sys/vm/min_free_kbytes 32768
 
