@@ -17,9 +17,13 @@
 
 #define CARD_NUM 0
 
-#define EXT_SPEAKER_SWITCH_CTRL     "Ext_Speaker_Amp_Switch"
-#define EXT_HEADPHONE_SWITCH_CTRL   "Ext_Headphone_Amp_Switch"
-#define AUDIO_I2S0DL1_HD_SWITCH     "Audio_I2S0dl1_hd_Switch"
+#define EXT_SPEAKER_SWITCH_CTRL     "Speaker_Amp_Switch"
+#define EXT_HEADPHONE_SWITCH_CTRL   "Headset_Speaker_Amp_Switch"
+#define SPEAKER_PGAL_GAIN "Speaker_PGAL_GAIN"
+#define SPEAKER_PGAR_GAIN "Speaker_PGAR_GAIN"
+
+#define MUTE 0
+#define GAIN_DEFAULT 8
 
 #define ON 1
 #define OFF 0
@@ -80,7 +84,7 @@ int getALSAControlValue(char *name)
     ctl = mixer_get_ctl_by_name(mixer1, name);
     if (ctl == NULL)
     {
-        ALOGE("Failed to access control");
+        ALOGE("Failed to access control %s", name);
         return -1;
     }
 
@@ -110,12 +114,16 @@ void UpdateAudioInterface(int h2wStatefd)
         ALOGI("Switching to headphones\n");
         setALSAControlValue(EXT_SPEAKER_SWITCH_CTRL, OFF);
         setALSAControlValue(EXT_HEADPHONE_SWITCH_CTRL, ON);
+        setALSAControlValue(SPEAKER_PGAL_GAIN, MUTE);
+        setALSAControlValue(SPEAKER_PGAR_GAIN, MUTE);
     }
     else
     {
         ALOGI("Switching to speakers\n");
         setALSAControlValue(EXT_HEADPHONE_SWITCH_CTRL, OFF);
         setALSAControlValue(EXT_SPEAKER_SWITCH_CTRL, ON);
+        setALSAControlValue(SPEAKER_PGAL_GAIN, GAIN_DEFAULT);
+        setALSAControlValue(SPEAKER_PGAR_GAIN, GAIN_DEFAULT);
     }
 }
 
@@ -231,10 +239,7 @@ int main()
             ParseEvent(msg, &evt);
             if (strcmp(evt.action, "change") == 0 && strcmp(evt.path, "/devices/virtual/switch/h2w") == 0)
             {
-                if (getALSAControlValue(AUDIO_I2S0DL1_HD_SWITCH) == 1)
-                {
-                    UpdateAudioInterface(h2wStatefd);
-                }
+                UpdateAudioInterface(h2wStatefd);
             }
         }
     }
