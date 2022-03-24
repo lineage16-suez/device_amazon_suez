@@ -130,7 +130,7 @@
 /dev/graphics/fb0         0660   system     graphics
 /dev/mtk_disp_mgr         0660   system     graphics
 /dev/mtkfb_vsync          0660   system     graphics
-/dev/sw_sync              0660   system     graphics
+/dev/sw_sync              0666   system     graphics
 
 # set ptmx group to non-root
 /dev/ptmx                 0666   root       radio
