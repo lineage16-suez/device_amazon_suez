@@ -115,6 +115,8 @@ vendor/lib/libwvhidl.so|4c3f12cab6bac3c10db27f9bf3f08f0e058289f0
 vendor/lib64/libwvhidl.so|31528465d11853cb67f22b9161d7885823af449e
 vendor/lib/mediadrm/libwvdrmengine.so|5a328e3a228c7ba6da032af829e4775352c84545
 vendor/lib64/mediadrm/libwvdrmengine.so|f7f4f34213df3d57dbb7b726048b1ab244bb61f7
+vendor/lib/liboemcrypto.so
+vendor/lib64/liboemcrypto.so
 
 # Graphics
 vendor/bin/pvrdebug
