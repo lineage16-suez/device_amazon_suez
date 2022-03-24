@@ -142,13 +142,11 @@ PRODUCT_PACKAGES += \
 
 # Wifi
 PRODUCT_PACKAGES += \
-    lib_driver_cmd_mt66xx \
-    libwifi-hal-mt66xx \
     libwpa_client \
     hostapd \
-    wificond \
-    wifilogd \
-    wpa_supplicant
+    hostapd_cli \
+    libwifi-hal-mt66xx \
+    wpa_supplicant \
 
 PRODUCT_COPY_FILES += \
     $(DEVICE)/wifi/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf \
