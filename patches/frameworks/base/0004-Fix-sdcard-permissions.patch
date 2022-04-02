@@ -7,7 +7,6 @@ index ab90e1b702d..ce346de3521 100644
  
      <permission name="android.permission.WRITE_MEDIA_STORAGE" >
 -        <group gid="media_rw" />
-+        <group gid="sdcard_r" />
 +        <group gid="sdcard_rw" />
 +        <group gid="media_rw" />
      </permission>
@@ -21,8 +20,6 @@ index ab90e1b702d..ce346de3521 100644
 -    <permission name="android.permission.WRITE_EXTERNAL_STORAGE" />
 +    <permission name="android.permission.READ_EXTERNAL_STORAGE" >
 +        <group gid="sdcard_r" />
-+        <group gid="sdcard_rw" />
-+        <group gid="media_rw" />
 +    </permission>
 +
 +    <permission name="android.permission.WRITE_EXTERNAL_STORAGE" >
