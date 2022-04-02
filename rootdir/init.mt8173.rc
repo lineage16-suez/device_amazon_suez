@@ -104,8 +104,6 @@ on post-fs-data
     chown system system /dev/ttyMT2
 
     exec /system/bin/mknod /dev/wmtWifi c 153 0
-    chmod 0660 /dev/wmtWifi
-    chown system system /dev/wmtWifi
 
     # SMB
     chown system system /proc/smb/ScreenComm
