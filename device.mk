@@ -30,9 +30,16 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/tablet_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tablet_core_hardware.xml
 
-# Ramdisk
-PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(DEVICE)/rootdir,root)
+# Init
+PRODUCT_PACKAGES += \
+    fix-symlinks.sh \
+    fstab.mt8173 \
+    init.mt8173.rc \
+    init.mt8173.usb.rc \
+    ueventd.mt8173.rc \
+    rgx.fw \
+    md32_d.bin \
+    md32_p.bin
 
 # Audio
 PRODUCT_PACKAGES += \
