@@ -1,4 +1,4 @@
-import init.mt8173.usb.rc
+import /vendor/etc/init/hw/init.mt8173.usb.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
@@ -54,7 +54,7 @@ service charger /sbin/healthd -c
 on fs
     write /proc/bootprof "INIT:Mount_START"
     symlink /dev/block/platform/soc/11230000.mmc /dev/block/platform/mtk-msdc.0
-    mount_all /fstab.mt8173
+    mount_all /vendor/etc/fstab.mt8173
     write /proc/bootprof "INIT:Mount_END"
 
 on post-fs  
@@ -541,7 +541,7 @@ on post-fs-data
     start rpmb_svc
 
 on boot
-    exec u:r:su:s0 root root -- /system/bin/sh /fix-symlinks.sh
+    exec u:r:su:s0 root root -- /system/bin/sh /vendor/bin/fix-symlinks.sh
     
     # Adjust minimum free memory space (default is 2.5M)
     write /proc/sys/vm/min_free_kbytes 32768
