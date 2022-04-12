@@ -75,18 +75,12 @@ PRODUCT_PACKAGES += \
     libbt-vendor \
     libbluetooth_mtk
 
-# aptX encoder
-PRODUCT_COPY_FILES += \
-    $(DEVICE)/bluetooth/aptx/libaptX_encoder.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libaptX_encoder.so \
-    $(DEVICE)/bluetooth/aptx/libaptXHD_encoder.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libaptXHD_encoder.so
-
 # Bromite Webview
 PRODUCT_PACKAGES += \
     bromite-webview
 
 # Camera
 #PRODUCT_COPY_FILES += \
-
 
 # DRM
 PRODUCT_PACKAGES += \
