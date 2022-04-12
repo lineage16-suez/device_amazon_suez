@@ -135,6 +135,9 @@ TARGET_OTA_ASSERT_DEVICE := suez
 DEVICE_MANIFEST_FILE := $(DEVICE)/manifest.xml
 DEVICE_MATRIX_FILE   := $(DEVICE)/compatibility_matrix.xml
 
+# Security patch level
+VENDOR_SECURITY_PATCH := 2019-07-01
+
 # Vold
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun%d/file
 
