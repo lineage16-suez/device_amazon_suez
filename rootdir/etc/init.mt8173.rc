@@ -44,12 +44,6 @@ on charger
     symlink /dev/block/platform/soc/11230000.mmc /dev/block/platform/mtk-msdc.0
     start charger
 
-service charger /charger
-    class charger
-    critical
-    group system graphics
-    seclabel u:r:healthd:s0
-
 on fs
     write /proc/bootprof "INIT:Mount_START"
     symlink /dev/block/platform/soc/11230000.mmc /dev/block/platform/mtk-msdc.0
@@ -920,4 +914,9 @@ service audiofix /system/xbin/audiofix
     user root
     group root
     oneshot
-    
+
+service charger /charger
+    class charger
+    critical
+    group system graphics
+    seclabel u:r:healthd:s0
