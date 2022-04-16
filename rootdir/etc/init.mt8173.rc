@@ -42,7 +42,6 @@ on init
 
 on charger
     symlink /dev/block/platform/soc/11230000.mmc /dev/block/platform/mtk-msdc.0
-    mount ext4 /dev/block/platform/mtk-msdc.0/by-name/system /system ro wait
     start charger
 
 service charger /sbin/healthd -c
