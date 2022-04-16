@@ -15,7 +15,7 @@ Shipped Android Version | FireOS 5.3.4 based on Android 5.1
 Storage | 32GB/64GB
 MicroSD | Up to 256GB
 Battery | Non-removable Li-Po 6300 mAh battery
-Display | 1920x1080 pixels, 5.0 inches (~442 ppi pixel density)
+Display | 1920x1080 pixels, 10 inches (~442 ppi pixel density)
 Back Camera  | 2 MP
 Front Camera | 0,3 MP
 
