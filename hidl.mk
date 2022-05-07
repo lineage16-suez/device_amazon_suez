@@ -16,7 +16,8 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-service
 
 # Configstore
-    PRODUCT_PACKAGES += android.hardware.configstore@1.1-service
+PRODUCT_PACKAGES += \
+    android.hardware.configstore@1.1-service
 
 # DRM
 PRODUCT_PACKAGES += \
