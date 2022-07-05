@@ -53,6 +53,10 @@ ifeq ($(TARGET_BUILD_VARIANT),eng)
 TARGET_KERNEL_ADDITIONAL_CONFIG:= suez_debug_defconfig
 endif
 
+# LineageHW
+BOARD_USES_LINEAGE_HARDWARE := true
+BOARD_HARDWARE_CLASS := $(DEVICE)/lineagehw
+
 # Board has Mediatek hardware
 BOARD_HAS_MTK_HARDWARE := true
 BOARD_USES_MTK_HARDWARE := true
