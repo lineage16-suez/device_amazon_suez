@@ -77,6 +77,51 @@ lib/libstlport.so:vendor/lib/libstlport.so
 lib64/libstlport.so:vendor/lib64/libstlport.so
 
 # Camera
+lib/hw/camera.mt8173.so:vendor/lib/hw/camera.mt8173.so
+lib/lib3a_sample.so:vendor/lib/lib3a_sample.so
+lib/lib3a.so:vendor/lib/lib3a.so
+lib/libacdk.so:vendor/lib/libacdk.so
+lib/libaed.so:vendor/lib/libaed.so
+lib/libcam_hwutils.so:vendor/lib/libcam_hwutils.so
+lib/libcam_mmp.so:vendor/lib/libcam_mmp.so
+lib/libcam_platform.so:vendor/lib/libcam_platform.so
+lib/libcam_utils.so:vendor/lib/libcam_utils.so
+lib/libcam.camadapter.so:vendor/lib/libcam.camadapter.so
+lib/libcam.camnode.so:vendor/lib/libcam.camnode.so
+lib/libcam.camshot.so:vendor/lib/libcam.camshot.so
+lib/libcam.client.so:vendor/lib/libcam.client.so
+lib/libcam.device1.so:vendor/lib/libcam.device1.so
+lib/libcam.device3.so:vendor/lib/libcam.device3.so
+lib/libcam.exif.so:vendor/lib/libcam.exif.so
+lib/libcam.exif.v3.so:vendor/lib/libcam.exif.v3.so
+lib/libcam.hal3a.v3.dng.so:vendor/lib/libcam.hal3a.v3.dng.so
+lib/libcam.hal3a.v3.so:vendor/lib/libcam.hal3a.v3.so
+lib/libcam.halsensor.so:vendor/lib/libcam.halsensor.so
+lib/libcam.iopipe.so:vendor/lib/libcam.iopipe.so
+lib/libcam.metadata.so:vendor/lib/libcam.metadata.so
+lib/libcam.metadataprovider.so:vendor/lib/libcam.metadataprovider.so
+lib/libcam.paramsmgr.so:vendor/lib/libcam.paramsmgr.so
+lib/libcam.utils.sensorlistener.so:vendor/lib/libcam.utils.sensorlistener.so
+lib/libcam.utils.so:vendor/lib/libcam.utils.so
+lib/libcam1_utils.so:vendor/lib/libcam1_utils.so
+lib/libcam3_app.so:vendor/lib/libcam3_app.so
+lib/libcam3_hwnode.so:vendor/lib/libcam3_hwnode.so
+lib/libcam3_hwpipeline.so:vendor/lib/libcam3_hwpipeline.so
+lib/libcam3_pipeline.so:vendor/lib/libcam3_pipeline.so
+lib/libcam3_utils.so:vendor/lib/libcam3_utils.so
+lib/libcamalgo.so:vendor/lib/libcamalgo.so
+lib/libcamdrv.so:vendor/lib/libcamdrv.so
+lib/libcameracustom.so:vendor/lib/libcameracustom.so
+lib/libmtkcamera_client.so:vendor/lib/libmtkcamera_client.so
+lib/libdngop.so:vendor/lib/libdngop.so
+lib/libmrdump.so:vendor/lib/libmrdump.so
+lib/libimageio_plat_drv.so:vendor/lib/libimageio_plat_drv.so
+lib/libimageio.so:vendor/lib/libimageio.so
+lib/libfeatureio.so:vendor/lib/libfeatureio.so
+lib/libfeatureiodrv.so:vendor/lib/libfeatureiodrv.so
+lib/libhal_effects.so:vendor/lib/libhal_effects.so
+lib/libJpgEncPipe.so:vendor/lib/libJpgEncPipe.so
+lib/libmtk_mmutils.so:vendor/lib/libmtk_mmutils.so
 
 # Crypto
 bin/amzn_dha_hmac:vendor/bin/amzn_dha_hmac
