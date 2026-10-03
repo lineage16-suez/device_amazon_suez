@@ -53,4 +53,7 @@ setup_vendor "$DEVICE_COMMON" "$VENDOR" "$LINEAGE_ROOT" true
 
 extract "$MY_DIR"/proprietary-files.txt "$SRC"
 
+python3 "$MY_DIR"/tools/patch_camera_client.py \
+    "$LINEAGE_ROOT"/vendor/amazon/suez/proprietary/vendor/lib/libcam.client.so
+
 "$MY_DIR"/setup-makefiles.sh

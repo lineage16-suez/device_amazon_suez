@@ -7,14 +7,14 @@ Subject: [PATCH] hardware/interfaces:add required changes for mt8163 * add
 
 Change-Id: I8400d31ae4891562b207285a952c3bbc2ac691f5
 ---
- audio/common/all-versions/default/service/Android.mk      | 8 ++++++++
- audio/core/2.0/default/Android.bp                         | 1 +
- audio/core/4.0/default/Android.bp                         | 1 +
- .../include/core/all-versions/default/StreamOut.impl.h    | 1 +
- camera/device/1.0/default/CameraDevice.cpp                | 4 +++-
- camera/provider/2.4/default/service.cpp                   | 2 +-
- sensors/1.0/default/Sensors.cpp                           | 2 +-
- 7 files changed, 16 insertions(+), 3 deletions(-)
+ audio/common/all-versions/default/service/Android.mk      |  8 +++++
+ audio/core/2.0/default/Android.bp                         |  1 +
+ audio/core/4.0/default/Android.bp                         |  1 +
+ .../include/core/all-versions/default/StreamOut.impl.h    |  1 +
+ camera/device/1.0/default/CameraDevice.cpp                | 46 ++++++++++++++++++++++--
+ camera/device/1.0/default/CameraDevice_1_0.h              |  2 +
+ sensors/1.0/default/Sensors.cpp                           |  2 +-
+ 7 files changed, 56 insertions(+), 3 deletions(-)
 
 diff --git a/audio/common/all-versions/default/service/Android.mk b/audio/common/all-versions/default/service/Android.mk
 index 73d03f100..ceeaa9c07 100644
@@ -72,46 +72,117 @@ index 6fb157f7d..1f872fb3f 100644
      struct timespec halTimeStamp;
      retval = Stream::analyzeStatus("get_presentation_position",
 diff --git a/camera/device/1.0/default/CameraDevice.cpp b/camera/device/1.0/default/CameraDevice.cpp
-index a1f1830fd..80f13faa8 100644
+index a1f1830..753938d 100644
 --- a/camera/device/1.0/default/CameraDevice.cpp
 +++ b/camera/device/1.0/default/CameraDevice.cpp
-@@ -35,6 +35,7 @@ using ::android::hardware::graphics::common::V1_0::BufferUsage;
+@@ -35,6 +35,26 @@ using ::android::hardware::graphics::common::V1_0::BufferUsage;
  using ::android::hardware::graphics::common::V1_0::PixelFormat;
 
  HandleImporter CameraDevice::sHandleImporter;
-+	CameraDevice* sUser = nullptr;
++std::atomic<CameraDevice*> CameraDevice::sGetMemoryUser{nullptr};
++
++static bool replaceParameter(
++        std::string* parameters, const char* key,
++        const char* expected, const char* replacement) {
++    const std::string token = std::string(key) + "=" + expected;
++    size_t position = parameters->find(token);
++
++    while (position != std::string::npos) {
++        const size_t end = position + token.size();
++        if ((position == 0 || (*parameters)[position - 1] == ';') &&
++                (end == parameters->size() || (*parameters)[end] == ';')) {
++            parameters->replace(position, token.size(),
++                    std::string(key) + "=" + replacement);
++            return true;
++        }
++        position = parameters->find(token, position + 1);
++    }
++    return false;
++}
 
  Status CameraDevice::getHidlStatus(const int& status) {
      switch (status) {
-@@ -361,7 +362,7 @@ CameraDevice::CameraHeapMemory::~CameraHeapMemory() {
+@@ -361,7 +381,11 @@ CameraDevice::CameraHeapMemory::~CameraHeapMemory() {
  // shared memory methods
  camera_memory_t* CameraDevice::sGetMemory(int fd, size_t buf_size, uint_t num_bufs, void *user) {
      ALOGV("%s", __FUNCTION__);
 -    CameraDevice* object = static_cast<CameraDevice*>(user);
-+    CameraDevice* object = (user == nullptr)? sUser : static_cast<CameraDevice*>(user);
++    CameraDevice* object = user == nullptr ? sGetMemoryUser.load() : static_cast<CameraDevice*>(user);
++    if (object == nullptr) {
++        ALOGE("%s: camera HAL supplied no callback context", __FUNCTION__);
++        return nullptr;
++    }
      if (object->mDeviceCallback == nullptr) {
          ALOGE("%s: camera HAL request memory while camera is not opened!", __FUNCTION__);
          return nullptr;
-@@ -718,6 +719,7 @@ Return<Status> CameraDevice::open(const sp<ICameraDeviceCallback>& callback) {
- #endif
-
-     if (mDevice->ops->set_callbacks) {
-+	sUser = this;
-         mDevice->ops->set_callbacks(mDevice,
-                 sNotifyCb, sDataCb, sDataCbTimestamp, sGetMemory, this);
+@@ -691,6 +715,12 @@ Return<Status> CameraDevice::open(const sp<ICameraDeviceCallback>& callback) {
+         return getHidlStatus(res);
      }
-diff --git a/camera/provider/2.4/default/service.cpp b/camera/provider/2.4/default/service.cpp
-index 7eeb6379c..f11fa6f3f 100644
---- a/camera/provider/2.4/default/service.cpp
-+++ b/camera/provider/2.4/default/service.cpp
-@@ -29,6 +29,6 @@ int main()
-     ALOGI("Camera provider Service is starting.");
-     // The camera HAL may communicate to other vendor components via
-     // /dev/vndbinder
--    android::ProcessState::initWithDriver("/dev/vndbinder");
-+    // android::ProcessState::initWithDriver("/dev/vndbinder");
-     return defaultPassthroughServiceImplementation<ICameraProvider>("legacy/0", /*maxThreads*/ 6);
+
++    CameraDevice* activeCamera = nullptr;
++    if (!sGetMemoryUser.compare_exchange_strong(activeCamera, this)) {
++        ALOGE("Camera %s cannot open while another legacy camera is active", mCameraId.c_str());
++        return Status::CAMERA_IN_USE;
++    }
++
+     int rc = OK;
+     if (mModule->getModuleApiVersion() >= CAMERA_MODULE_API_VERSION_2_3 &&
+         info.device_version > CAMERA_DEVICE_API_VERSION_1_0) {
+@@ -702,6 +732,8 @@ Return<Status> CameraDevice::open(const sp<ICameraDeviceCallback>& callback) {
+         rc = mModule->open(mCameraId.c_str(), (hw_device_t **)&mDevice);
+     }
+     if (rc != OK) {
++        activeCamera = this;
++        sGetMemoryUser.compare_exchange_strong(activeCamera, nullptr);
+         mDevice = nullptr;
+         ALOGE("Could not open camera %s: %d", mCameraId.c_str(), rc);
+         return getHidlStatus(rc);
+@@ -1006,7 +1038,15 @@ Return<Status> CameraDevice::setParameters(const hidl_string& params) {
+         return Status::OPERATION_NOT_SUPPORTED;
+     }
+     if (mDevice->ops->set_parameters) {
+-        return getHidlStatus(mDevice->ops->set_parameters(mDevice, params.c_str()));
++        std::string adjusted(params.c_str());
++        // Fixed 30 fps underexposes both suez sensors.
++        const bool variablePreviewRate = replaceParameter(
++                &adjusted, "preview-fps-range", "30000,30000", "10000,30000");
++        if (variablePreviewRate && mCameraIdInt == 1) {
++            replaceParameter(&adjusted, "exposure-compensation", "0", "1");
++        }
++        return getHidlStatus(mDevice->ops->set_parameters(
++                mDevice, adjusted.c_str()));
+     }
+     return Status::ILLEGAL_ARGUMENT;
  }
+@@ -1061,6 +1101,8 @@ void CameraDevice::closeLocked() {
+         }
+         mDevice = nullptr;
+     }
++    CameraDevice* activeCamera = this;
++    sGetMemoryUser.compare_exchange_strong(activeCamera, nullptr);
+ }
+
+ }  // namespace implementation
+diff --git a/camera/device/1.0/default/CameraDevice_1_0.h b/camera/device/1.0/default/CameraDevice_1_0.h
+index 2b35a73..e6d749d 100644
+--- a/camera/device/1.0/default/CameraDevice_1_0.h
++++ b/camera/device/1.0/default/CameraDevice_1_0.h
+@@ -17,6 +17,7 @@
+ #ifndef ANDROID_HARDWARE_CAMERA_DEVICE_V1_0_CAMERADEVICE_H
+ #define ANDROID_HARDWARE_CAMERA_DEVICE_V1_0_CAMERADEVICE_H
+
++#include <atomic>
+ #include <unordered_map>
+ #include "utils/Mutex.h"
+ #include "utils/SortedVector.h"
+@@ -166,6 +167,7 @@ private:
+     bool  mDisconnected;
+
+     static HandleImporter sHandleImporter;
++    static std::atomic<CameraDevice*> sGetMemoryUser;
+
+     const SortedVector<std::pair<std::string, std::string>>& mCameraDeviceNames;
+
 diff --git a/sensors/1.0/default/Sensors.cpp b/sensors/1.0/default/Sensors.cpp
 index 1100dd6a2..c41a74412 100644
 --- a/sensors/1.0/default/Sensors.cpp

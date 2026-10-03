@@ -11,9 +11,8 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-service-mediatek
 
 # Camera
-#PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.4-impl \
-    android.hardware.camera.provider@2.4-service
+PRODUCT_PACKAGES += \
+    android.hardware.camera.provider@2.4-impl
 
 # Configstore
 PRODUCT_PACKAGES += \
